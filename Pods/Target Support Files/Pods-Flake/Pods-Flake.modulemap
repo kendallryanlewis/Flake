@@ -1,0 +1,6 @@
+framework module Pods_Flake {
+  umbrella header "Pods-Flake-umbrella.h"
+
+  export *
+  module * { export * }
+}

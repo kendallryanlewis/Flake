@@ -1,0 +1,24 @@
+PODS:
+  - CircleLoading (0.1.1)
+  - UICircularProgressRing (3.1.0)
+  - WMGaugeView (0.0.3)
+
+DEPENDENCIES:
+  - CircleLoading
+  - UICircularProgressRing
+  - WMGaugeView
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - CircleLoading
+    - UICircularProgressRing
+    - WMGaugeView
+
+SPEC CHECKSUMS:
+  CircleLoading: 7be0d228c0b52a00cfd9a6b5ddaa8720948e8b88
+  UICircularProgressRing: a731141123e52f7f404c626e8d16ff3fab10b6c6
+  WMGaugeView: cde63af0f85eb701b2fb6f7ff525061e333b2b7d
+
+PODFILE CHECKSUM: c8ea1d5ba8eff04896d6e47789eca9a80542069a
+
+COCOAPODS: 1.5.3

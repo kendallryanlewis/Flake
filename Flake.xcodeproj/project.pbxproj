@@ -1,0 +1,704 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		261897A0F27BC62C439814BF /* Pods_Flake.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA9A0D3B65C9A25F57398598 /* Pods_Flake.framework */; };
+		5C12C2C120CE18E7002DCB87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C12C2C020CE18E7002DCB87 /* AppDelegate.swift */; };
+		5C12C2D620CE18E8002DCB87 /* FlakeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C12C2D520CE18E8002DCB87 /* FlakeTests.swift */; };
+		5C12C2E120CE18E8002DCB87 /* FlakeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C12C2E020CE18E8002DCB87 /* FlakeUITests.swift */; };
+		5C12C2F320DA02DE002DCB87 /* newFlakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C12C2F220DA02DE002DCB87 /* newFlakeViewController.swift */; };
+		5C12C2F520DA0A6A002DCB87 /* mainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C12C2F420DA0A6A002DCB87 /* mainViewController.swift */; };
+		5C49D27E20EEF51000777118 /* flakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C49D27D20EEF51000777118 /* flakeViewController.swift */; };
+		5C49D27F20F32D5700777118 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C12C2C720CE18E8002DCB87 /* Assets.xcassets */; };
+		5C49D28120FA018200777118 /* addFeature.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C49D28020FA018200777118 /* addFeature.xib */; };
+		5C49D28720FAEA9000777118 /* addFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C49D28620FAEA9000777118 /* addFeatureView.swift */; };
+		5C49D28A20FC49AD00777118 /* FeatureDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C49D28920FC49AD00777118 /* FeatureDetails.xib */; };
+		5C7B341E20FDB7CF00E85599 /* FeatureCalculator.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C7B341D20FDB7CE00E85599 /* FeatureCalculator.xib */; };
+		5C7B342020FF0AF900E85599 /* settingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7B341F20FF0AF900E85599 /* settingsViewController.swift */; };
+		5C82AD2C212A8E4E0091BB07 /* calculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C82AD2B212A8E4E0091BB07 /* calculatorViewController.swift */; };
+		5C9929312108446000BC982C /* FeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9929302108446000BC982C /* FeatureView.swift */; };
+		5C9929332108447600BC982C /* Feature.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C9929322108447600BC982C /* Feature.xib */; };
+		5CD4D05420EB31CF0008220A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C12C2C420CE18E7002DCB87 /* Main.storyboard */; };
+		5CD4D05A20EC9EBE0008220A /* newBasicFlake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD4D05920EC9EBE0008220A /* newBasicFlake.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5C12C2D220CE18E8002DCB87 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5C12C2B520CE18E7002DCB87 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5C12C2BC20CE18E7002DCB87;
+			remoteInfo = Flake;
+		};
+		5C12C2DD20CE18E8002DCB87 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5C12C2B520CE18E7002DCB87 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5C12C2BC20CE18E7002DCB87;
+			remoteInfo = Flake;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5C12C2BD20CE18E7002DCB87 /* Flake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flake.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C12C2C020CE18E7002DCB87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5C12C2C520CE18E7002DCB87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5C12C2C720CE18E8002DCB87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5C12C2CA20CE18E8002DCB87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5C12C2CC20CE18E8002DCB87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C12C2D120CE18E8002DCB87 /* FlakeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlakeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C12C2D520CE18E8002DCB87 /* FlakeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlakeTests.swift; sourceTree = "<group>"; };
+		5C12C2D720CE18E8002DCB87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C12C2DC20CE18E8002DCB87 /* FlakeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlakeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C12C2E020CE18E8002DCB87 /* FlakeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlakeUITests.swift; sourceTree = "<group>"; };
+		5C12C2E220CE18E8002DCB87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C12C2F220DA02DE002DCB87 /* newFlakeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newFlakeViewController.swift; sourceTree = "<group>"; };
+		5C12C2F420DA0A6A002DCB87 /* mainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainViewController.swift; sourceTree = "<group>"; };
+		5C49D27D20EEF51000777118 /* flakeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = flakeViewController.swift; sourceTree = "<group>"; };
+		5C49D28020FA018200777118 /* addFeature.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = addFeature.xib; sourceTree = "<group>"; };
+		5C49D28620FAEA9000777118 /* addFeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addFeatureView.swift; sourceTree = "<group>"; };
+		5C49D28920FC49AD00777118 /* FeatureDetails.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeatureDetails.xib; sourceTree = "<group>"; };
+		5C7B341D20FDB7CE00E85599 /* FeatureCalculator.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeatureCalculator.xib; sourceTree = "<group>"; };
+		5C7B341F20FF0AF900E85599 /* settingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsViewController.swift; sourceTree = "<group>"; };
+		5C82AD2B212A8E4E0091BB07 /* calculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calculatorViewController.swift; sourceTree = "<group>"; };
+		5C9929302108446000BC982C /* FeatureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureView.swift; sourceTree = "<group>"; };
+		5C9929322108447600BC982C /* Feature.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Feature.xib; sourceTree = "<group>"; };
+		5C9DF57E20ECCE5E001A4D51 /* Install Pod File */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Install Pod File"; sourceTree = "<group>"; };
+		5CD4D05920EC9EBE0008220A /* newBasicFlake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newBasicFlake.swift; sourceTree = "<group>"; };
+		7112A8B1D089BD4EEE80013E /* Pods-Flake.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flake.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flake/Pods-Flake.debug.xcconfig"; sourceTree = "<group>"; };
+		AA23EF55DEC0663E8DF841CD /* Pods-Flake.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flake.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flake/Pods-Flake.release.xcconfig"; sourceTree = "<group>"; };
+		CA9A0D3B65C9A25F57398598 /* Pods_Flake.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flake.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5C12C2BA20CE18E7002DCB87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				261897A0F27BC62C439814BF /* Pods_Flake.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C12C2CE20CE18E8002DCB87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C12C2D920CE18E8002DCB87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5C12C2B420CE18E7002DCB87 = {
+			isa = PBXGroup;
+			children = (
+				5C12C2BF20CE18E7002DCB87 /* Flake */,
+				5C12C2D420CE18E8002DCB87 /* FlakeTests */,
+				5C12C2DF20CE18E8002DCB87 /* FlakeUITests */,
+				5C12C2BE20CE18E7002DCB87 /* Products */,
+				CB22C643408AC157B5EA5FEA /* Pods */,
+				72F0643A67FEBB986587C912 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5C12C2BE20CE18E7002DCB87 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5C12C2BD20CE18E7002DCB87 /* Flake.app */,
+				5C12C2D120CE18E8002DCB87 /* FlakeTests.xctest */,
+				5C12C2DC20CE18E8002DCB87 /* FlakeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5C12C2BF20CE18E7002DCB87 /* Flake */ = {
+			isa = PBXGroup;
+			children = (
+				5C12C2C420CE18E7002DCB87 /* Main.storyboard */,
+				5C9DF57E20ECCE5E001A4D51 /* Install Pod File */,
+				5C9929322108447600BC982C /* Feature.xib */,
+				5C49D28920FC49AD00777118 /* FeatureDetails.xib */,
+				5C7B341D20FDB7CE00E85599 /* FeatureCalculator.xib */,
+				5C49D28020FA018200777118 /* addFeature.xib */,
+				5CD4D05920EC9EBE0008220A /* newBasicFlake.swift */,
+				5C49D27D20EEF51000777118 /* flakeViewController.swift */,
+				5C12C2F420DA0A6A002DCB87 /* mainViewController.swift */,
+				5C82AD2B212A8E4E0091BB07 /* calculatorViewController.swift */,
+				5C12C2F220DA02DE002DCB87 /* newFlakeViewController.swift */,
+				5C7B341F20FF0AF900E85599 /* settingsViewController.swift */,
+				5C12C2C020CE18E7002DCB87 /* AppDelegate.swift */,
+				5C9929302108446000BC982C /* FeatureView.swift */,
+				5C12C2C720CE18E8002DCB87 /* Assets.xcassets */,
+				5C12C2C920CE18E8002DCB87 /* LaunchScreen.storyboard */,
+				5C12C2CC20CE18E8002DCB87 /* Info.plist */,
+				5C49D28620FAEA9000777118 /* addFeatureView.swift */,
+			);
+			path = Flake;
+			sourceTree = "<group>";
+		};
+		5C12C2D420CE18E8002DCB87 /* FlakeTests */ = {
+			isa = PBXGroup;
+			children = (
+				5C12C2D520CE18E8002DCB87 /* FlakeTests.swift */,
+				5C12C2D720CE18E8002DCB87 /* Info.plist */,
+			);
+			path = FlakeTests;
+			sourceTree = "<group>";
+		};
+		5C12C2DF20CE18E8002DCB87 /* FlakeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5C12C2E020CE18E8002DCB87 /* FlakeUITests.swift */,
+				5C12C2E220CE18E8002DCB87 /* Info.plist */,
+			);
+			path = FlakeUITests;
+			sourceTree = "<group>";
+		};
+		72F0643A67FEBB986587C912 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CA9A0D3B65C9A25F57398598 /* Pods_Flake.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CB22C643408AC157B5EA5FEA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7112A8B1D089BD4EEE80013E /* Pods-Flake.debug.xcconfig */,
+				AA23EF55DEC0663E8DF841CD /* Pods-Flake.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5C12C2BC20CE18E7002DCB87 /* Flake */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5C12C2E520CE18E8002DCB87 /* Build configuration list for PBXNativeTarget "Flake" */;
+			buildPhases = (
+				DB0F9324FAA895DE5D7CA77A /* [CP] Check Pods Manifest.lock */,
+				5C12C2B920CE18E7002DCB87 /* Sources */,
+				5C12C2BA20CE18E7002DCB87 /* Frameworks */,
+				5C12C2BB20CE18E7002DCB87 /* Resources */,
+				781E739B6DD1FB5A7456D7A9 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Flake;
+			productName = Flake;
+			productReference = 5C12C2BD20CE18E7002DCB87 /* Flake.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5C12C2D020CE18E8002DCB87 /* FlakeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5C12C2E820CE18E8002DCB87 /* Build configuration list for PBXNativeTarget "FlakeTests" */;
+			buildPhases = (
+				5C12C2CD20CE18E8002DCB87 /* Sources */,
+				5C12C2CE20CE18E8002DCB87 /* Frameworks */,
+				5C12C2CF20CE18E8002DCB87 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5C12C2D320CE18E8002DCB87 /* PBXTargetDependency */,
+			);
+			name = FlakeTests;
+			productName = FlakeTests;
+			productReference = 5C12C2D120CE18E8002DCB87 /* FlakeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5C12C2DB20CE18E8002DCB87 /* FlakeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5C12C2EB20CE18E8002DCB87 /* Build configuration list for PBXNativeTarget "FlakeUITests" */;
+			buildPhases = (
+				5C12C2D820CE18E8002DCB87 /* Sources */,
+				5C12C2D920CE18E8002DCB87 /* Frameworks */,
+				5C12C2DA20CE18E8002DCB87 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5C12C2DE20CE18E8002DCB87 /* PBXTargetDependency */,
+			);
+			name = FlakeUITests;
+			productName = FlakeUITests;
+			productReference = 5C12C2DC20CE18E8002DCB87 /* FlakeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5C12C2B520CE18E7002DCB87 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "Kendall Lewis";
+				TargetAttributes = {
+					5C12C2BC20CE18E7002DCB87 = {
+						CreatedOnToolsVersion = 9.3;
+					};
+					5C12C2D020CE18E8002DCB87 = {
+						CreatedOnToolsVersion = 9.3;
+						TestTargetID = 5C12C2BC20CE18E7002DCB87;
+					};
+					5C12C2DB20CE18E8002DCB87 = {
+						CreatedOnToolsVersion = 9.3;
+						TestTargetID = 5C12C2BC20CE18E7002DCB87;
+					};
+				};
+			};
+			buildConfigurationList = 5C12C2B820CE18E7002DCB87 /* Build configuration list for PBXProject "Flake" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5C12C2B420CE18E7002DCB87;
+			productRefGroup = 5C12C2BE20CE18E7002DCB87 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5C12C2BC20CE18E7002DCB87 /* Flake */,
+				5C12C2D020CE18E8002DCB87 /* FlakeTests */,
+				5C12C2DB20CE18E8002DCB87 /* FlakeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5C12C2BB20CE18E7002DCB87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C7B341E20FDB7CF00E85599 /* FeatureCalculator.xib in Resources */,
+				5C49D28120FA018200777118 /* addFeature.xib in Resources */,
+				5C49D27F20F32D5700777118 /* Assets.xcassets in Resources */,
+				5C49D28A20FC49AD00777118 /* FeatureDetails.xib in Resources */,
+				5C9929332108447600BC982C /* Feature.xib in Resources */,
+				5CD4D05420EB31CF0008220A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C12C2CF20CE18E8002DCB87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C12C2DA20CE18E8002DCB87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		781E739B6DD1FB5A7456D7A9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Flake/Pods-Flake-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CircleLoading/CircleLoading.framework",
+				"${BUILT_PRODUCTS_DIR}/UICircularProgressRing/UICircularProgressRing.framework",
+				"${BUILT_PRODUCTS_DIR}/WMGaugeView/WMGaugeView.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CircleLoading.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICircularProgressRing.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WMGaugeView.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Flake/Pods-Flake-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB0F9324FAA895DE5D7CA77A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Flake-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5C12C2B920CE18E7002DCB87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C49D27E20EEF51000777118 /* flakeViewController.swift in Sources */,
+				5C12C2F320DA02DE002DCB87 /* newFlakeViewController.swift in Sources */,
+				5CD4D05A20EC9EBE0008220A /* newBasicFlake.swift in Sources */,
+				5C12C2C120CE18E7002DCB87 /* AppDelegate.swift in Sources */,
+				5C49D28720FAEA9000777118 /* addFeatureView.swift in Sources */,
+				5C9929312108446000BC982C /* FeatureView.swift in Sources */,
+				5C82AD2C212A8E4E0091BB07 /* calculatorViewController.swift in Sources */,
+				5C12C2F520DA0A6A002DCB87 /* mainViewController.swift in Sources */,
+				5C7B342020FF0AF900E85599 /* settingsViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C12C2CD20CE18E8002DCB87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C12C2D620CE18E8002DCB87 /* FlakeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C12C2D820CE18E8002DCB87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C12C2E120CE18E8002DCB87 /* FlakeUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5C12C2D320CE18E8002DCB87 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5C12C2BC20CE18E7002DCB87 /* Flake */;
+			targetProxy = 5C12C2D220CE18E8002DCB87 /* PBXContainerItemProxy */;
+		};
+		5C12C2DE20CE18E8002DCB87 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5C12C2BC20CE18E7002DCB87 /* Flake */;
+			targetProxy = 5C12C2DD20CE18E8002DCB87 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5C12C2C420CE18E7002DCB87 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5C12C2C520CE18E7002DCB87 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5C12C2C920CE18E8002DCB87 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5C12C2CA20CE18E8002DCB87 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5C12C2E320CE18E8002DCB87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5C12C2E420CE18E8002DCB87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5C12C2E620CE18E8002DCB87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7112A8B1D089BD4EEE80013E /* Pods-Flake.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PPLU8J5RDW;
+				INFOPLIST_FILE = Flake/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Applied-Innovant.Flake";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5C12C2E720CE18E8002DCB87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA23EF55DEC0663E8DF841CD /* Pods-Flake.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PPLU8J5RDW;
+				INFOPLIST_FILE = Flake/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Applied-Innovant.Flake";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5C12C2E920CE18E8002DCB87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PPLU8J5RDW;
+				INFOPLIST_FILE = FlakeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Applied-Innovant.FlakeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Flake.app/Flake";
+			};
+			name = Debug;
+		};
+		5C12C2EA20CE18E8002DCB87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PPLU8J5RDW;
+				INFOPLIST_FILE = FlakeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Applied-Innovant.FlakeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Flake.app/Flake";
+			};
+			name = Release;
+		};
+		5C12C2EC20CE18E8002DCB87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PPLU8J5RDW;
+				INFOPLIST_FILE = FlakeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Applied-Innovant.FlakeUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Flake;
+			};
+			name = Debug;
+		};
+		5C12C2ED20CE18E8002DCB87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PPLU8J5RDW;
+				INFOPLIST_FILE = FlakeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Applied-Innovant.FlakeUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Flake;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5C12C2B820CE18E7002DCB87 /* Build configuration list for PBXProject "Flake" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C12C2E320CE18E8002DCB87 /* Debug */,
+				5C12C2E420CE18E8002DCB87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5C12C2E520CE18E8002DCB87 /* Build configuration list for PBXNativeTarget "Flake" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C12C2E620CE18E8002DCB87 /* Debug */,
+				5C12C2E720CE18E8002DCB87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5C12C2E820CE18E8002DCB87 /* Build configuration list for PBXNativeTarget "FlakeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C12C2E920CE18E8002DCB87 /* Debug */,
+				5C12C2EA20CE18E8002DCB87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5C12C2EB20CE18E8002DCB87 /* Build configuration list for PBXNativeTarget "FlakeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C12C2EC20CE18E8002DCB87 /* Debug */,
+				5C12C2ED20CE18E8002DCB87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5C12C2B520CE18E7002DCB87 /* Project object */;
+}

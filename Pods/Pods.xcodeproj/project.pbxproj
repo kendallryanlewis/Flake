@@ -1,0 +1,988 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01C81C59A18E6497509A3F4F4686BE15 /* WMGaugeView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 672DD263A6AB9DF6691708601BD59CF2 /* WMGaugeView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0251B95C44EF70D3DF1011A7E20A95D9 /* UICircularProgressRingGradientPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC99751049E34E83ACD40F4A92300FCD /* UICircularProgressRingGradientPosition.swift */; };
+		0A37146F1717A299CED6E53397219515 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908E902E026C5C22904CF9014A5604AD /* Foundation.framework */; };
+		0FE02BED29EBDD43764BB4F58D0B6241 /* Pods-Flake-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 025785161D1BC9DF2CBE57C7F6FC1F1B /* Pods-Flake-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		238314603D1A07434D19C3AAA0976C93 /* CircleLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF9D1846FFB6EB9A59797848E2DD4DF /* CircleLoading.swift */; };
+		32C4374E26938757B411833F594D4468 /* AppDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 3213F9DE719E59EA4E02321069AF4720 /* AppDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		33A0A385B95AD7327C8345E8F3915A6C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908E902E026C5C22904CF9014A5604AD /* Foundation.framework */; };
+		381B04222B3BDDCC1F1BCEDD06B12EF4 /* UICircularProgressRingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BC2743E4034E4FFA2E207DD4ECB29D /* UICircularProgressRingDelegate.swift */; };
+		40B2E56838C44FC61404AC3750983AB9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC2C02191C153C1554B35DEE8B2D09D4 /* UIKit.framework */; };
+		4C082070818840A516549E0617ABC3FE /* UICircularProgressRing-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 07889594333C314F72EE2F2F9E8790A3 /* UICircularProgressRing-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		639A27F9DDAD8273448A6E8FF13C9988 /* ViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B75CAB9E73C20835406829E85E38E540 /* ViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6E69732EB591C3EBC9BC42E18E67AE96 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EA79AFF726437DA1D0ED01CBB0145E4 /* AppDelegate.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		6F2A9BA06AF932EDE96998537FAB4FBD /* UICircularProgressRing-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD9B6FE170F69E59F8596B82D303E25 /* UICircularProgressRing-dummy.m */; };
+		778D2C5911E7757E3BDEDB14B96AFF94 /* Pods-Flake-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B29B43A197CBE9CBA17ED81E304A56D8 /* Pods-Flake-dummy.m */; };
+		7F8E1EB8307198E80297E8ABB5267266 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908E902E026C5C22904CF9014A5604AD /* Foundation.framework */; };
+		83F0702235A76BD625A8832ED22A8A2C /* UICircularProgressRingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26329A93382E63188FED4156AB43158D /* UICircularProgressRingLayer.swift */; };
+		9700624D31A780989642B005D4E72375 /* WMGaugeView.h in Headers */ = {isa = PBXBuildFile; fileRef = 74C15B49D9B68A775FB81DDD413C4BCC /* WMGaugeView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AAEC62FE49DB129DC9C050E78E198B75 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB0C9325C98B26C075857BAC7BC238B /* ViewController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		B377B233C1F57F68D2A42B33B4720F75 /* UICircularProgressRing.h in Headers */ = {isa = PBXBuildFile; fileRef = 54A65ED243B781E9711555C98349343B /* UICircularProgressRing.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BC8FC296E89DAA300AA7FBA03F490F63 /* UICircularProgressRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AAD28757B8265618CC94982862C19A /* UICircularProgressRing.swift */; };
+		C08E939DFA2B8A264EA4A3D50F6A9849 /* UICircularProgressRingStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB17C0F471B7F76CB0B4827AAAEA605E /* UICircularProgressRingStyle.swift */; };
+		C1105B2779C00DB8A5400F793EFD0F24 /* WMGaugeView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A4115347BC5BDF9ADE23F6EA464901 /* WMGaugeView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		D98D3A8227B5496C57FDCB26A547651A /* CircleLoading-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CB9F67C2C2A6B66BEE7AD4F44F0A24 /* CircleLoading-dummy.m */; };
+		DD406F965BB24FFD994E260E44224774 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BEE99FB7CDD1EBCDB7BF122C3AAE836 /* main.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		EF39295E55FE237CB4D5902DBD67F835 /* WMGaugeView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A0CC2FE07CC4BDF5AB5782A2D0A90F75 /* WMGaugeView-dummy.m */; };
+		F8193EA58DBEE046CF4FABA11DC313A6 /* CircleLoading-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EC9A946F5567853BA1C2ACF2D382D6E4 /* CircleLoading-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FCC4FC8778C457BB76B2FD350DAC7300 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908E902E026C5C22904CF9014A5604AD /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8784B712D54285FDE9D884A70F97993F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 18FEA368F3384958FC6751499ED39A1A;
+			remoteInfo = CircleLoading;
+		};
+		9D5A8098F40BF0EDA20E61BC74983F82 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 47AAA04AC98A61822A581341257696E4;
+			remoteInfo = WMGaugeView;
+		};
+		D469CA912084FA5F87CC54ECFD8CD21B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9DFCA60F5C44CD6B4AEF6AE1A2156AD0;
+			remoteInfo = UICircularProgressRing;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		006511475976CAF53F4644AAFC3EC474 /* CircleLoading.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CircleLoading.xcconfig; sourceTree = "<group>"; };
+		025785161D1BC9DF2CBE57C7F6FC1F1B /* Pods-Flake-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Flake-umbrella.h"; sourceTree = "<group>"; };
+		07889594333C314F72EE2F2F9E8790A3 /* UICircularProgressRing-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UICircularProgressRing-umbrella.h"; sourceTree = "<group>"; };
+		0EA79AFF726437DA1D0ED01CBB0145E4 /* AppDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = WMGaugeView/AppDelegate.m; sourceTree = "<group>"; };
+		16CB9F67C2C2A6B66BEE7AD4F44F0A24 /* CircleLoading-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CircleLoading-dummy.m"; sourceTree = "<group>"; };
+		18C6AD0C4C3DE34D6325DF076650FD63 /* Pods-Flake-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Flake-frameworks.sh"; sourceTree = "<group>"; };
+		1BE9C49755D664430BD0A230EDC332B9 /* UICircularProgressRing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = UICircularProgressRing.framework; path = UICircularProgressRing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		26329A93382E63188FED4156AB43158D /* UICircularProgressRingLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UICircularProgressRingLayer.swift; path = src/UICircularProgressRing/UICircularProgressRingLayer.swift; sourceTree = "<group>"; };
+		2ECC79B6CA2C65C9E568ABA14C88C7A6 /* UICircularProgressRing.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = UICircularProgressRing.modulemap; sourceTree = "<group>"; };
+		2EF9D1846FFB6EB9A59797848E2DD4DF /* CircleLoading.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CircleLoading.swift; path = CircleLoading/Classes/CircleLoading.swift; sourceTree = "<group>"; };
+		3213F9DE719E59EA4E02321069AF4720 /* AppDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = WMGaugeView/AppDelegate.h; sourceTree = "<group>"; };
+		3BB0C9325C98B26C075857BAC7BC238B /* ViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = WMGaugeView/ViewController.m; sourceTree = "<group>"; };
+		4A1677138C7E4F5C4921AFA3E7CF0DB2 /* WMGaugeView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WMGaugeView-prefix.pch"; sourceTree = "<group>"; };
+		4AB7104E0D0F1B8299CD14347FBBD99C /* WMGaugeView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = WMGaugeView.xcconfig; sourceTree = "<group>"; };
+		50D33CB53F3DDDA42EC14DE867030620 /* Pods-Flake.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Flake.modulemap"; sourceTree = "<group>"; };
+		54A65ED243B781E9711555C98349343B /* UICircularProgressRing.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = UICircularProgressRing.h; path = src/UICircularProgressRing/UICircularProgressRing.h; sourceTree = "<group>"; };
+		5AD9B6FE170F69E59F8596B82D303E25 /* UICircularProgressRing-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UICircularProgressRing-dummy.m"; sourceTree = "<group>"; };
+		672DD263A6AB9DF6691708601BD59CF2 /* WMGaugeView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WMGaugeView-umbrella.h"; sourceTree = "<group>"; };
+		74C15B49D9B68A775FB81DDD413C4BCC /* WMGaugeView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WMGaugeView.h; path = WMGaugeView/WMGaugeView.h; sourceTree = "<group>"; };
+		75BC2743E4034E4FFA2E207DD4ECB29D /* UICircularProgressRingDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UICircularProgressRingDelegate.swift; path = src/UICircularProgressRing/UICircularProgressRingDelegate.swift; sourceTree = "<group>"; };
+		779612515332F78608C5AC90120F525E /* Pods-Flake-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Flake-resources.sh"; sourceTree = "<group>"; };
+		7964B8AAFEB90A7E5593719061C8D4F7 /* CircleLoading.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = CircleLoading.modulemap; sourceTree = "<group>"; };
+		8BEE99FB7CDD1EBCDB7BF122C3AAE836 /* main.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = main.m; path = WMGaugeView/main.m; sourceTree = "<group>"; };
+		908E902E026C5C22904CF9014A5604AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		91AAD28757B8265618CC94982862C19A /* UICircularProgressRing.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UICircularProgressRing.swift; path = src/UICircularProgressRing/UICircularProgressRing.swift; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9E17121C62D003A7D737BC93B808CB6C /* Pods-Flake.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Flake.release.xcconfig"; sourceTree = "<group>"; };
+		A0CC2FE07CC4BDF5AB5782A2D0A90F75 /* WMGaugeView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "WMGaugeView-dummy.m"; sourceTree = "<group>"; };
+		A89DA7F913711B376C84D92528EDD6D9 /* Pods-Flake-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Flake-acknowledgements.plist"; sourceTree = "<group>"; };
+		AC83A9852E8CA32A2DFC3D9D8A79F713 /* WMGaugeView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = WMGaugeView.modulemap; sourceTree = "<group>"; };
+		B29B43A197CBE9CBA17ED81E304A56D8 /* Pods-Flake-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Flake-dummy.m"; sourceTree = "<group>"; };
+		B75CAB9E73C20835406829E85E38E540 /* ViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = WMGaugeView/ViewController.h; sourceTree = "<group>"; };
+		BC2C02191C153C1554B35DEE8B2D09D4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		C76A0EB5E50077EA3B1C20EE810A6C8D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CC16369BB655084622B71CA831D977B4 /* WMGaugeView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = WMGaugeView.framework; path = WMGaugeView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7A4115347BC5BDF9ADE23F6EA464901 /* WMGaugeView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WMGaugeView.m; path = WMGaugeView/WMGaugeView.m; sourceTree = "<group>"; };
+		DC2D6A82119F367C4279B579D628CEBB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DFE99AE52BF4EBBAEE1120745F6EDAC3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E28BAF2AFC4F12EE994563BC88F0D5B3 /* UICircularProgressRing.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = UICircularProgressRing.xcconfig; sourceTree = "<group>"; };
+		E68D40B6D3538B4E3EFB0553D0106ED9 /* CircleLoading-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CircleLoading-prefix.pch"; sourceTree = "<group>"; };
+		E84D854531A2C18FCFA27CCFB80B8FD4 /* Pods-Flake.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Flake.debug.xcconfig"; sourceTree = "<group>"; };
+		EC9A946F5567853BA1C2ACF2D382D6E4 /* CircleLoading-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CircleLoading-umbrella.h"; sourceTree = "<group>"; };
+		ED3FC8600A9B3F44F04819684762BD32 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE8EF776C090938383F17D509B86CF06 /* UICircularProgressRing-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UICircularProgressRing-prefix.pch"; sourceTree = "<group>"; };
+		F157891AEF87A8819705F164FB3B235E /* Pods-Flake-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Flake-acknowledgements.markdown"; sourceTree = "<group>"; };
+		F55ED4E744AFFCCB517CD39C9439E0BD /* Pods_Flake.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Flake.framework; path = "Pods-Flake.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB17C0F471B7F76CB0B4827AAAEA605E /* UICircularProgressRingStyle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UICircularProgressRingStyle.swift; path = src/UICircularProgressRing/UICircularProgressRingStyle.swift; sourceTree = "<group>"; };
+		FC99751049E34E83ACD40F4A92300FCD /* UICircularProgressRingGradientPosition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UICircularProgressRingGradientPosition.swift; path = src/UICircularProgressRing/UICircularProgressRingGradientPosition.swift; sourceTree = "<group>"; };
+		FDC493D12DEEE11959D699241DA8DEA4 /* CircleLoading.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CircleLoading.framework; path = CircleLoading.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0776A868E6B2269F8D4AF111600CB29E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F8E1EB8307198E80297E8ABB5267266 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C9614BBB642BD9238F8260CC2305904 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A37146F1717A299CED6E53397219515 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A361D1F12EC7FD50EBDC081F6B4EE9F1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33A0A385B95AD7327C8345E8F3915A6C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA87D2D85CB4DF931243F39E88319AE5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCC4FC8778C457BB76B2FD350DAC7300 /* Foundation.framework in Frameworks */,
+				40B2E56838C44FC61404AC3750983AB9 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		10DEDCB394BAA0C7FEDEBE330207B074 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				908E902E026C5C22904CF9014A5604AD /* Foundation.framework */,
+				BC2C02191C153C1554B35DEE8B2D09D4 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		1899387ECDB4A17F767F245D9168221C /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				65F76C80D464DB000EEE69E36FCEE9B3 /* Pods-Flake */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		3A223E88B1060810961F9F2999A08969 /* UICircularProgressRing */ = {
+			isa = PBXGroup;
+			children = (
+				54A65ED243B781E9711555C98349343B /* UICircularProgressRing.h */,
+				91AAD28757B8265618CC94982862C19A /* UICircularProgressRing.swift */,
+				75BC2743E4034E4FFA2E207DD4ECB29D /* UICircularProgressRingDelegate.swift */,
+				FC99751049E34E83ACD40F4A92300FCD /* UICircularProgressRingGradientPosition.swift */,
+				26329A93382E63188FED4156AB43158D /* UICircularProgressRingLayer.swift */,
+				FB17C0F471B7F76CB0B4827AAAEA605E /* UICircularProgressRingStyle.swift */,
+				A4BDC8417A3463EE0D32B62EAAA5B015 /* Support Files */,
+			);
+			name = UICircularProgressRing;
+			path = UICircularProgressRing;
+			sourceTree = "<group>";
+		};
+		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				10DEDCB394BAA0C7FEDEBE330207B074 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4F1AF84A8BA9711EAAD8A7119440B417 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FDC493D12DEEE11959D699241DA8DEA4 /* CircleLoading.framework */,
+				F55ED4E744AFFCCB517CD39C9439E0BD /* Pods_Flake.framework */,
+				1BE9C49755D664430BD0A230EDC332B9 /* UICircularProgressRing.framework */,
+				CC16369BB655084622B71CA831D977B4 /* WMGaugeView.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6536E268434D5B09A64E0B632145C23F /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7964B8AAFEB90A7E5593719061C8D4F7 /* CircleLoading.modulemap */,
+				006511475976CAF53F4644AAFC3EC474 /* CircleLoading.xcconfig */,
+				16CB9F67C2C2A6B66BEE7AD4F44F0A24 /* CircleLoading-dummy.m */,
+				E68D40B6D3538B4E3EFB0553D0106ED9 /* CircleLoading-prefix.pch */,
+				EC9A946F5567853BA1C2ACF2D382D6E4 /* CircleLoading-umbrella.h */,
+				DC2D6A82119F367C4279B579D628CEBB /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/CircleLoading";
+			sourceTree = "<group>";
+		};
+		65F76C80D464DB000EEE69E36FCEE9B3 /* Pods-Flake */ = {
+			isa = PBXGroup;
+			children = (
+				ED3FC8600A9B3F44F04819684762BD32 /* Info.plist */,
+				50D33CB53F3DDDA42EC14DE867030620 /* Pods-Flake.modulemap */,
+				F157891AEF87A8819705F164FB3B235E /* Pods-Flake-acknowledgements.markdown */,
+				A89DA7F913711B376C84D92528EDD6D9 /* Pods-Flake-acknowledgements.plist */,
+				B29B43A197CBE9CBA17ED81E304A56D8 /* Pods-Flake-dummy.m */,
+				18C6AD0C4C3DE34D6325DF076650FD63 /* Pods-Flake-frameworks.sh */,
+				779612515332F78608C5AC90120F525E /* Pods-Flake-resources.sh */,
+				025785161D1BC9DF2CBE57C7F6FC1F1B /* Pods-Flake-umbrella.h */,
+				E84D854531A2C18FCFA27CCFB80B8FD4 /* Pods-Flake.debug.xcconfig */,
+				9E17121C62D003A7D737BC93B808CB6C /* Pods-Flake.release.xcconfig */,
+			);
+			name = "Pods-Flake";
+			path = "Target Support Files/Pods-Flake";
+			sourceTree = "<group>";
+		};
+		6692A46F7979F9B836CFFD1C8B8F52CE /* WMGaugeView */ = {
+			isa = PBXGroup;
+			children = (
+				3213F9DE719E59EA4E02321069AF4720 /* AppDelegate.h */,
+				0EA79AFF726437DA1D0ED01CBB0145E4 /* AppDelegate.m */,
+				8BEE99FB7CDD1EBCDB7BF122C3AAE836 /* main.m */,
+				B75CAB9E73C20835406829E85E38E540 /* ViewController.h */,
+				3BB0C9325C98B26C075857BAC7BC238B /* ViewController.m */,
+				74C15B49D9B68A775FB81DDD413C4BCC /* WMGaugeView.h */,
+				D7A4115347BC5BDF9ADE23F6EA464901 /* WMGaugeView.m */,
+				83FA6FCE74D0741EC9BA01E2576DC5EC /* Support Files */,
+			);
+			name = WMGaugeView;
+			path = WMGaugeView;
+			sourceTree = "<group>";
+		};
+		6B285E6A2ED06C5BF5FE45AD98AE398B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FDA10A478887FFFC1A9222BCA1A4F27F /* CircleLoading */,
+				3A223E88B1060810961F9F2999A08969 /* UICircularProgressRing */,
+				6692A46F7979F9B836CFFD1C8B8F52CE /* WMGaugeView */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
+				6B285E6A2ED06C5BF5FE45AD98AE398B /* Pods */,
+				4F1AF84A8BA9711EAAD8A7119440B417 /* Products */,
+				1899387ECDB4A17F767F245D9168221C /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		83FA6FCE74D0741EC9BA01E2576DC5EC /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C76A0EB5E50077EA3B1C20EE810A6C8D /* Info.plist */,
+				AC83A9852E8CA32A2DFC3D9D8A79F713 /* WMGaugeView.modulemap */,
+				4AB7104E0D0F1B8299CD14347FBBD99C /* WMGaugeView.xcconfig */,
+				A0CC2FE07CC4BDF5AB5782A2D0A90F75 /* WMGaugeView-dummy.m */,
+				4A1677138C7E4F5C4921AFA3E7CF0DB2 /* WMGaugeView-prefix.pch */,
+				672DD263A6AB9DF6691708601BD59CF2 /* WMGaugeView-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/WMGaugeView";
+			sourceTree = "<group>";
+		};
+		A4BDC8417A3463EE0D32B62EAAA5B015 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				DFE99AE52BF4EBBAEE1120745F6EDAC3 /* Info.plist */,
+				2ECC79B6CA2C65C9E568ABA14C88C7A6 /* UICircularProgressRing.modulemap */,
+				E28BAF2AFC4F12EE994563BC88F0D5B3 /* UICircularProgressRing.xcconfig */,
+				5AD9B6FE170F69E59F8596B82D303E25 /* UICircularProgressRing-dummy.m */,
+				EE8EF776C090938383F17D509B86CF06 /* UICircularProgressRing-prefix.pch */,
+				07889594333C314F72EE2F2F9E8790A3 /* UICircularProgressRing-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/UICircularProgressRing";
+			sourceTree = "<group>";
+		};
+		FDA10A478887FFFC1A9222BCA1A4F27F /* CircleLoading */ = {
+			isa = PBXGroup;
+			children = (
+				2EF9D1846FFB6EB9A59797848E2DD4DF /* CircleLoading.swift */,
+				6536E268434D5B09A64E0B632145C23F /* Support Files */,
+			);
+			name = CircleLoading;
+			path = CircleLoading;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		590F29CCB99625E24D6582AACCA27490 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FE02BED29EBDD43764BB4F58D0B6241 /* Pods-Flake-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71778E7A4DCFDD0F0F58695B3F484CA5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8193EA58DBEE046CF4FABA11DC313A6 /* CircleLoading-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9828196426F7A9A18634BAEDA365901B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32C4374E26938757B411833F594D4468 /* AppDelegate.h in Headers */,
+				639A27F9DDAD8273448A6E8FF13C9988 /* ViewController.h in Headers */,
+				01C81C59A18E6497509A3F4F4686BE15 /* WMGaugeView-umbrella.h in Headers */,
+				9700624D31A780989642B005D4E72375 /* WMGaugeView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B06152B47A42B11583B310BB1A32C1EE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C082070818840A516549E0617ABC3FE /* UICircularProgressRing-umbrella.h in Headers */,
+				B377B233C1F57F68D2A42B33B4720F75 /* UICircularProgressRing.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		18FEA368F3384958FC6751499ED39A1A /* CircleLoading */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A17D9505C3759D61AE00B1A64FF8D68F /* Build configuration list for PBXNativeTarget "CircleLoading" */;
+			buildPhases = (
+				BB8479E57B5F9EEB1D92C8AFD33FF3CC /* Sources */,
+				9C9614BBB642BD9238F8260CC2305904 /* Frameworks */,
+				71778E7A4DCFDD0F0F58695B3F484CA5 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CircleLoading;
+			productName = CircleLoading;
+			productReference = FDC493D12DEEE11959D699241DA8DEA4 /* CircleLoading.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		47AAA04AC98A61822A581341257696E4 /* WMGaugeView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B50E77C819363996866D9D8E4E670A83 /* Build configuration list for PBXNativeTarget "WMGaugeView" */;
+			buildPhases = (
+				B80FFCE6DF83245FCC652E2CA6BFCADB /* Sources */,
+				FA87D2D85CB4DF931243F39E88319AE5 /* Frameworks */,
+				9828196426F7A9A18634BAEDA365901B /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WMGaugeView;
+			productName = WMGaugeView;
+			productReference = CC16369BB655084622B71CA831D977B4 /* WMGaugeView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		9DFCA60F5C44CD6B4AEF6AE1A2156AD0 /* UICircularProgressRing */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDE94DF7B1FFB29F61C3B5D613991916 /* Build configuration list for PBXNativeTarget "UICircularProgressRing" */;
+			buildPhases = (
+				E51319610A0B875870A9F4FB91E1300F /* Sources */,
+				0776A868E6B2269F8D4AF111600CB29E /* Frameworks */,
+				B06152B47A42B11583B310BB1A32C1EE /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UICircularProgressRing;
+			productName = UICircularProgressRing;
+			productReference = 1BE9C49755D664430BD0A230EDC332B9 /* UICircularProgressRing.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A66FF8A2E2085C6A8D39DDAE42A331EE /* Pods-Flake */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB0C9EACCB8CDC4030B406D006CC3F30 /* Build configuration list for PBXNativeTarget "Pods-Flake" */;
+			buildPhases = (
+				94C46D5BFC4A0EE41ACCBEB566DB329A /* Sources */,
+				A361D1F12EC7FD50EBDC081F6B4EE9F1 /* Frameworks */,
+				590F29CCB99625E24D6582AACCA27490 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				291FD089E2D5C5897BBE38743F29F042 /* PBXTargetDependency */,
+				35300D574E8D553726B24115C80DDF86 /* PBXTargetDependency */,
+				D23576F6BC4DAE45180A4CD9AACBCA53 /* PBXTargetDependency */,
+			);
+			name = "Pods-Flake";
+			productName = "Pods-Flake";
+			productReference = F55ED4E744AFFCCB517CD39C9439E0BD /* Pods_Flake.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 4F1AF84A8BA9711EAAD8A7119440B417 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				18FEA368F3384958FC6751499ED39A1A /* CircleLoading */,
+				A66FF8A2E2085C6A8D39DDAE42A331EE /* Pods-Flake */,
+				9DFCA60F5C44CD6B4AEF6AE1A2156AD0 /* UICircularProgressRing */,
+				47AAA04AC98A61822A581341257696E4 /* WMGaugeView */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		94C46D5BFC4A0EE41ACCBEB566DB329A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				778D2C5911E7757E3BDEDB14B96AFF94 /* Pods-Flake-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B80FFCE6DF83245FCC652E2CA6BFCADB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E69732EB591C3EBC9BC42E18E67AE96 /* AppDelegate.m in Sources */,
+				DD406F965BB24FFD994E260E44224774 /* main.m in Sources */,
+				AAEC62FE49DB129DC9C050E78E198B75 /* ViewController.m in Sources */,
+				EF39295E55FE237CB4D5902DBD67F835 /* WMGaugeView-dummy.m in Sources */,
+				C1105B2779C00DB8A5400F793EFD0F24 /* WMGaugeView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB8479E57B5F9EEB1D92C8AFD33FF3CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D98D3A8227B5496C57FDCB26A547651A /* CircleLoading-dummy.m in Sources */,
+				238314603D1A07434D19C3AAA0976C93 /* CircleLoading.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E51319610A0B875870A9F4FB91E1300F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F2A9BA06AF932EDE96998537FAB4FBD /* UICircularProgressRing-dummy.m in Sources */,
+				BC8FC296E89DAA300AA7FBA03F490F63 /* UICircularProgressRing.swift in Sources */,
+				381B04222B3BDDCC1F1BCEDD06B12EF4 /* UICircularProgressRingDelegate.swift in Sources */,
+				0251B95C44EF70D3DF1011A7E20A95D9 /* UICircularProgressRingGradientPosition.swift in Sources */,
+				83F0702235A76BD625A8832ED22A8A2C /* UICircularProgressRingLayer.swift in Sources */,
+				C08E939DFA2B8A264EA4A3D50F6A9849 /* UICircularProgressRingStyle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		291FD089E2D5C5897BBE38743F29F042 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CircleLoading;
+			target = 18FEA368F3384958FC6751499ED39A1A /* CircleLoading */;
+			targetProxy = 8784B712D54285FDE9D884A70F97993F /* PBXContainerItemProxy */;
+		};
+		35300D574E8D553726B24115C80DDF86 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = UICircularProgressRing;
+			target = 9DFCA60F5C44CD6B4AEF6AE1A2156AD0 /* UICircularProgressRing */;
+			targetProxy = D469CA912084FA5F87CC54ECFD8CD21B /* PBXContainerItemProxy */;
+		};
+		D23576F6BC4DAE45180A4CD9AACBCA53 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = WMGaugeView;
+			target = 47AAA04AC98A61822A581341257696E4 /* WMGaugeView */;
+			targetProxy = 9D5A8098F40BF0EDA20E61BC74983F82 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0F79D2572C81D8065AA9FE76423E883F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E17121C62D003A7D737BC93B808CB6C /* Pods-Flake.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Flake/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Flake/Pods-Flake.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		41C864C93B867E5E7A8722BD05B7AE97 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 006511475976CAF53F4644AAFC3EC474 /* CircleLoading.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/CircleLoading/CircleLoading-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CircleLoading/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/CircleLoading/CircleLoading.modulemap";
+				PRODUCT_MODULE_NAME = CircleLoading;
+				PRODUCT_NAME = CircleLoading;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		691EE0234A3BA1A3B057D3A4C23C9CCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		703082A85162812D3B777E668767AD25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		7726509C419D12E6FF4FC248F7191E54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4AB7104E0D0F1B8299CD14347FBBD99C /* WMGaugeView.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/WMGaugeView/WMGaugeView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/WMGaugeView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/WMGaugeView/WMGaugeView.modulemap";
+				PRODUCT_MODULE_NAME = WMGaugeView;
+				PRODUCT_NAME = WMGaugeView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7D9256FE39CAED78270225662BA668A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E28BAF2AFC4F12EE994563BC88F0D5B3 /* UICircularProgressRing.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/UICircularProgressRing/UICircularProgressRing-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/UICircularProgressRing/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/UICircularProgressRing/UICircularProgressRing.modulemap";
+				PRODUCT_MODULE_NAME = UICircularProgressRing;
+				PRODUCT_NAME = UICircularProgressRing;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8FC1B2A34D17A289CCBB527D23940BA4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4AB7104E0D0F1B8299CD14347FBBD99C /* WMGaugeView.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/WMGaugeView/WMGaugeView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/WMGaugeView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/WMGaugeView/WMGaugeView.modulemap";
+				PRODUCT_MODULE_NAME = WMGaugeView;
+				PRODUCT_NAME = WMGaugeView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9DD1376CEFB069D5A162A1897629487C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E84D854531A2C18FCFA27CCFB80B8FD4 /* Pods-Flake.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Flake/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Flake/Pods-Flake.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C6CD8FE46693558CA937836123BE2B94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E28BAF2AFC4F12EE994563BC88F0D5B3 /* UICircularProgressRing.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/UICircularProgressRing/UICircularProgressRing-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/UICircularProgressRing/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/UICircularProgressRing/UICircularProgressRing.modulemap";
+				PRODUCT_MODULE_NAME = UICircularProgressRing;
+				PRODUCT_NAME = UICircularProgressRing;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F1E83C0B9354221697EB5B8847193DE3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 006511475976CAF53F4644AAFC3EC474 /* CircleLoading.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/CircleLoading/CircleLoading-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CircleLoading/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/CircleLoading/CircleLoading.modulemap";
+				PRODUCT_MODULE_NAME = CircleLoading;
+				PRODUCT_NAME = CircleLoading;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				691EE0234A3BA1A3B057D3A4C23C9CCC /* Debug */,
+				703082A85162812D3B777E668767AD25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A17D9505C3759D61AE00B1A64FF8D68F /* Build configuration list for PBXNativeTarget "CircleLoading" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41C864C93B867E5E7A8722BD05B7AE97 /* Debug */,
+				F1E83C0B9354221697EB5B8847193DE3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B50E77C819363996866D9D8E4E670A83 /* Build configuration list for PBXNativeTarget "WMGaugeView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7726509C419D12E6FF4FC248F7191E54 /* Debug */,
+				8FC1B2A34D17A289CCBB527D23940BA4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDE94DF7B1FFB29F61C3B5D613991916 /* Build configuration list for PBXNativeTarget "UICircularProgressRing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6CD8FE46693558CA937836123BE2B94 /* Debug */,
+				7D9256FE39CAED78270225662BA668A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB0C9EACCB8CDC4030B406D006CC3F30 /* Build configuration list for PBXNativeTarget "Pods-Flake" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DD1376CEFB069D5A162A1897629487C /* Debug */,
+				0F79D2572C81D8065AA9FE76423E883F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
