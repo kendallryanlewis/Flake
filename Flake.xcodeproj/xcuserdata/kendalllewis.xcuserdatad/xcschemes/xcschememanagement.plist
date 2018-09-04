@@ -7,7 +7,25 @@
 		<key>Flake.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>22</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>5C12C2BC20CE18E7002DCB87</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5C12C2D020CE18E8002DCB87</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5C12C2DB20CE18E8002DCB87</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+//self.ref.child("users/\(user.uid)/username").setValue(username) //This is for specific changes
 
 
 class settingsViewController: UIViewController {
@@ -20,8 +20,10 @@ class settingsViewController: UIViewController {
         
     }
     @IBAction func backgroundPressed(_ sender: Any) {
-        bg = Int(backgroundNumber.text!)!
-        performSegue(withIdentifier: "setttingsToMainSegue", sender: self)//segues to the feed page
+        if backgroundButton != nil{
+            bg = Int(backgroundNumber.text!)!
+            performSegue(withIdentifier: "setttingsToMainSegue", sender: self)//segues to the feed page
+        }
     }
     
     override func didReceiveMemoryWarning() {

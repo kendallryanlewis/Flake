@@ -8,6 +8,10 @@
 
 import UIKit
 import UICircularProgressRing
+import Firebase
+import FBSDKCoreKit
+import FBSDKLoginKit
+import FirebaseDatabase
 
 let indexPath = IndexPath(row: flakeList.count - 1, section: 0)
 
@@ -16,15 +20,16 @@ var menuList = [menuDisplay(menuItem: "MyAccount", menuDetails: Int(1)),
                 menuDisplay(menuItem: "Help", menuDetails: Int(0)),
                 menuDisplay(menuItem: "History", menuDetails: Int(3)),
                 menuDisplay(menuItem: "Options", menuDetails: Int(0)),
-                menuDisplay(menuItem: "Logout", menuDetails: Int(9))]
+                menuDisplay(menuItem: "Logout", menuDetails: Int(0))]
 
-var flakeList = [flakeDisplay(flakeID: 1, flakeTitle: "FlakeOne", flakeDetails: "Gathering for Winter trip!", flakeDate: "06/22/91", flakeLocation: "Denver,Co", flakePrice: 192, flakeParty: 12, amountPaid: 5, totalAmountPaid: 0), flakeDisplay(flakeID: 2, flakeTitle: "FlakeTwo", flakeDetails: "Summer trip!", flakeDate: "02/12/18", flakeLocation: "Waynesville", flakePrice: 3000, flakeParty: 3, amountPaid: 200, totalAmountPaid: 0), flakeDisplay(flakeID: 3, flakeTitle: "FlakeThree", flakeDetails: "Getting away for the weekend!", flakeDate: "tommorow", flakeLocation: "IDK!", flakePrice: 1200, flakeParty: 9, amountPaid: 90, totalAmountPaid: 0)]
+var flakeList = [flakeDisplay(flakeID: 1, flakeTitle: "FlakeOne", flakeDetails: "Gathering for Winter trip!", flakeDate: "06/22/91", flakeLocation: "Denver,Co", flakePrice: 192, flakeParty: 12, amountPaid: 5, totalAmountPaid: 0)]
 
 var currentFlakes = flakeList.count //count how many flakes the user has
-var pageControlCount :Int = 3
+var pageControlCount :Int = 0
 var pageID = 0
 var page = 0
 var bg = 0
+var flakeIdentification = 0
 
 class menuDisplay {
     var menuItem = ""
@@ -77,7 +82,7 @@ class menuCell: UITableViewCell{ //Edit the menu cells
         view.layer.shadowRadius = 4
     }
 }
-class mainViewController: UIViewController, UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate{
+class mainViewController: UIViewController, UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate, FBSDKLoginButtonDelegate{
 
     @IBOutlet weak var featureScrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
@@ -90,6 +95,8 @@ class mainViewController: UIViewController, UIScrollViewDelegate, UITableViewDat
     @IBOutlet weak var featureScrollViewDetails: UIScrollView!
     @IBOutlet weak var featureScrollViewCalculator: UIScrollView!
     @IBOutlet weak var backgroundImage: UIImageView!
+    @IBOutlet weak var usernameDisplay: UILabel!
+    @IBOutlet weak var userImage: UIImageView!
     
     var contentWidth:CGFloat = 0.0
     var menuIsVisible = false//sets menu to close
@@ -109,11 +116,15 @@ class mainViewController: UIViewController, UIScrollViewDelegate, UITableViewDat
     var ourAmountPaid = 0
     var flakeIndex = 0
     var addPayment = 0
+    var ref:DatabaseReference?
+    var databaseHandle: DatabaseHandle?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadBackground() //load background images
+        getFacebookUserInfo() //Gather facebook info if needed
         /************** Paralax effect *************/
-        /*let min = CGFloat(-100)
+        let min = CGFloat(-100)
         let max = CGFloat(100)
         let xMotion = UIInterpolatingMotionEffect(keyPath: "layer.transform.translation.x", type: .tiltAlongHorizontalAxis)
         xMotion.minimumRelativeValue = min
@@ -124,9 +135,8 @@ class mainViewController: UIViewController, UIScrollViewDelegate, UITableViewDat
         let motionEffectGroup = UIMotionEffectGroup()
         motionEffectGroup.motionEffects = [xMotion,yMotion]
         backgroundImageView.addMotionEffect(motionEffectGroup)
-        */
-        let menuIndexPath = IndexPath(row: menuList.count - 1, section: 0)
         /*********menu table view*********/
+        let menuIndexPath = IndexPath(row: menuList.count - 1, section: 0)
         self.menuTableView.delegate = self
         self.menuTableView.dataSource = self
         menuTableView.beginUpdates()
@@ -134,11 +144,21 @@ class mainViewController: UIViewController, UIScrollViewDelegate, UITableViewDat
         menuTableView.endUpdates()
         menuTableView.tableFooterView = UIView(frame: .zero) //remove empty rows in tableView
         menuView.isHidden = true//hide menu
-       /*************** Transparent navbar **************/ self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+       /*************** Transparent navbar **************/
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
+        /**************** Pregress bars ******************/
+        pageControl.numberOfPages = pageControlCount
+        featureScrollViewDetails.isHidden = true//hide details
+        featureScrollViewCalculator.isHidden = true//hide details
+        backgroundImage.contentMode = UIViewContentMode.scaleAspectFit
+        /**************** Firebase Database ******************/
+        ref = Database.database().reference()
+        firebaseFlakeIdentification() //Gather flake indentification
         /******************** Features *****************/
+        pageControlCount = currentFlakes //add page dots
         featureScrollView.delegate = self
         featureScrollView.isPagingEnabled = true
         featureScrollView.contentSize = CGSize(width: self.view.bounds.width * CGFloat(featureArray.count), height: 250)
@@ -147,18 +167,9 @@ class mainViewController: UIViewController, UIScrollViewDelegate, UITableViewDat
         featureScrollView.showsVerticalScrollIndicator = false
         featureScrollViewDetails.showsVerticalScrollIndicator = false
         featureScrollViewCalculator.showsVerticalScrollIndicator = false
-        loadFeatures()
-        
-        /**************** Pregress bars ******************/
-        pageControl.numberOfPages = pageControlCount
-        
-        featureScrollViewDetails.isHidden = true//hide details
-        featureScrollViewCalculator.isHidden = true//hide details
-        
-        backgroundImage.contentMode = UIViewContentMode.scaleAspectFit
-        loadBackground()
+        loadFeatures()//Gather and display user flakes
     }
-  
+    
     func loadBackground(){
         print("bg \(bg)")
         if bg == 1 {
@@ -167,7 +178,7 @@ class mainViewController: UIViewController, UIScrollViewDelegate, UITableViewDat
         }else if bg == 2{
             backgroundImage.backgroundColor = UIColor(patternImage: UIImage(named: "background2.png")!)
         }else if bg == 3{
-            backgroundImage.backgroundColor = UIColor(patternImage: UIImage(named: "back ground3.png")!)
+            backgroundImage.backgroundColor = UIColor(patternImage: UIImage(named: "background3.png")!)
         }else if bg == 4{
             backgroundImage.backgroundColor = UIColor(patternImage: UIImage(named: "background4.png")!)
         }else if bg == 5{
@@ -184,8 +195,17 @@ class mainViewController: UIViewController, UIScrollViewDelegate, UITableViewDat
             backgroundImage.backgroundColor = UIColor(patternImage: UIImage(named: "background10.png")!)
         }
     }
-
     
+    func firebaseFlakeIdentification(){
+        ref?.child("flakeIdentification/flakeIdentification").observe(.value, with: { (snapshot) in
+            print("This works two")
+            let post = snapshot.value as? String
+            if let actualPost = post{
+                flakeIdentification = Int(actualPost)!
+                print("This is the current flake identification \(flakeIdentification)")
+            }
+        })
+    }
     func loadFeatures(){
         for (index, feature) in featureArray.enumerated(){ //iterate throughout the array for each flake
             if let featureView = Bundle.main.loadNibNamed("Feature", owner: self, options: nil)?.first as? FeatureView {
@@ -210,23 +230,22 @@ class mainViewController: UIViewController, UIScrollViewDelegate, UITableViewDat
                 featureScrollViewDetails.addSubview(featureDetailsView) //Add this to enable Feature to display in scrollview
                 featureDetailsView.frame.size.width = self.view.bounds.size.width
                 featureDetailsView.frame.origin.x = CGFloat(index) * self.view.bounds.size.width
-
-                tripPrice = flakeList[index].flakePrice
-                flakeParty = flakeList[index].flakeParty
-                myPrice = tripPrice / flakeParty
+                
+                tripPrice = flakeList[index].flakePrice //convert the price of the trip in to the variable
+                flakeParty = flakeList[index].flakeParty //find the amount of people in trip
+                myPrice = tripPrice / flakeParty //figure out individual price
                 myAmountPaid = flakeList[index].amountPaid
                 ourAmountPaid = flakeList[index].totalAmountPaid
                 
                 featureDetailsView.progressBar.maxValue = UICircularProgressRing.ProgressValue(tripPrice)
                 featureDetailsView.progressBar.startProgress(to: UICircularProgressRing.ProgressValue(ourAmountPaid), duration: 1.0)
-                
                 featureDetailsView.personalProgressBar.maxValue = UICircularProgressRing.ProgressValue(myPrice)
                 featureDetailsView.personalProgressBar.startProgress(to: UICircularProgressRing.ProgressValue(myAmountPaid), duration: 1.0)
                 
-                print("trip price \(tripPrice)")
-                print("personal price \(myPrice)")
-                print("total amount paid \(ourAmountPaid)")
-                print("my amount Paid \(myAmountPaid)")
+                //print("trip price \(tripPrice)")
+                //print("personal price \(myPrice)")
+                //print("total amount paid \(ourAmountPaid)")
+                //print("my amount Paid \(myAmountPaid)")
             }
             if let addFeatureView = Bundle.main.loadNibNamed("addFeature", owner: self, options: nil)?.first as? FeatureView {
                 //featureAddView.addButton.tag = index //activate the moreButton
@@ -368,10 +387,47 @@ class mainViewController: UIViewController, UIScrollViewDelegate, UITableViewDat
                 performSegue(withIdentifier: "settingsSegue", sender: self)//segues to the settings page
             }else if menuList[indexPath.row].menuItem == "Logout"{
                 print("Logout")
-                /*********************************/
-                /*******Add logout feature********/
-                /*********************************/
+                //l
+                let loginManager = FBSDKLoginManager()
+                loginManager.logOut() //logout of facebook
+                try! Auth.auth().signOut()
+                UserDefaults.standard.set(false, forKey:"isUserLoggedIn") //user is no longer logged in
+                UserDefaults.standard.synchronize()
+                self.performSegue(withIdentifier: "returnLoginView", sender: self) //segue to the login screen
             }
+        }
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        print("loginButtonDidLogOut")
+        userImage.image = UIImage(named: "fb-art.jpg")
+        label.text = "Not Logged In"
+    }
+    
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        print("didCompleteWith")
+        getFacebookUserInfo()
+    }
+    
+    func getFacebookUserInfo() {
+        if(FBSDKAccessToken.current() != nil){
+            //print permissions, such as public_profile
+            print(FBSDKAccessToken.current().permissions)
+            let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields" : "id, name, email"])
+            let connection = FBSDKGraphRequestConnection()
+            
+            connection.add(graphRequest, completionHandler: { (connection, result, error) -> Void in
+                
+                let data = result as! [String : AnyObject]
+                
+                self.usernameDisplay.text = data["name"] as? String
+                
+                let FBid = data["id"] as? String
+                
+                let url = NSURL(string: "https://graph.facebook.com/\(FBid!)/picture?type=large&return_ssl_resources=1")
+                self.userImage.image = UIImage(data: NSData(contentsOf: url! as URL)! as Data)
+            })
+            connection.start()
         }
     }
     
@@ -384,4 +440,11 @@ class mainViewController: UIViewController, UIScrollViewDelegate, UITableViewDat
         //searchController.resignFirstResponder()//hides keyboard
         return(true)
     }
+    
 }
+
+
+
+
+
+
