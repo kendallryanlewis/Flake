@@ -14,9 +14,9 @@ import FirebaseDatabase
 import FirebaseAuth
 
 var idLocation:String = ""
-var userFlakeArray = [Int]()
+var userFlakeArray: [Int] = []
+var second = [9,8]
 var uid = ""
-
 var newFlakes:String = ""
 
 class launchScreenViewController: UIViewController {
@@ -35,44 +35,39 @@ class launchScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
+        newFlakes = ""
         getUserFlakes() //Get user flakes
-        
-        
         for i in userFlakeArray.enumerated() {
             print (userFlakeArray)
         }
-        
-        //databaseFlakeData() //gather firebase data for flakes
+        dump(userFlakeArray)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1){
             self.performSegue(withIdentifier: "launchScreenSegue", sender: self)
         }
     }
     func getUserFlakes(){
-        userFlakeArray.removeAll()
-        newFlakes = ""
+        //userFlakeArray.removeAll()
         let userID = Auth.auth().currentUser
         if (userID != nil) {
             uid = (userID?.uid)!
         }
         idLocation = "userAccounts/\(uid)/flakeIds" //firebase file flocation
-        ref?.child(idLocation).observe(.value, with: { (snapshot) in
+        ref?.child(idLocation).observe(.value, with: { (snapshot) in //gather user flake list from firebase
             let post = snapshot.value as? String
             if let actualPost = post{
                 self.Identification = actualPost
-                print("This is \(self.Identification)")
+                //print("This is \(self.Identification)")
             }
-            
-            for chr in self.Identification {
-                if String(chr) != ","{
-                    self.chrInteger = Int(String(chr))!
-                    print(self.chrInteger)
-                    userFlakeArray.append(self.chrInteger)
-                    self.newName = "flake\(self.chrInteger)"
-                    print(self.newName)
+            for int in self.Identification {
+                if String(int) != ","{
+                    self.chrInteger = Int(String(chr))! //convert to int
+                    //print(self.chrInteger)
+                    userFlakeArray.append(self.chrInteger) //add number to array
+                    second.append(self.chrInteger)
+                    self.newName = "flake\(self.chrInteger)" //set name to flake#
+                    //print(self.newName)
                     self.databaseFlakeData() //gather firebase data for flakes
-                    
-                    
-                    print("This is the flake array \(userFlakeArray)")
+                    //print("This is the flake array \(userFlakeArray)")
                     if newFlakes != ""{
                         newFlakes = "\(newFlakes),\(String(chr))"
                     }else{
@@ -80,8 +75,8 @@ class launchScreenViewController: UIViewController {
                     }
                 }
             }
-            //print(userFlakeArray)
         })
+        print(second)
     }
     func databaseFlakeData(){
         ref?.child("flakes/\(newName)").observe(.childAdded, with: { (snapshot) in //Retrieve flake

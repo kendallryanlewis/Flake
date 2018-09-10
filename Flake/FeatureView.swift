@@ -24,4 +24,5 @@ class FeatureView: UIView {
     @IBOutlet weak var progressBar: UICircularProgressRing!
     @IBOutlet weak var personalProgressBar: UICircularProgressRing!
     @IBOutlet weak var returnHome: UIButton!
+    @IBOutlet weak var featureContainer: UIView!
 }

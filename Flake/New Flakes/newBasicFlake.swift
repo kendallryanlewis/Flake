@@ -27,6 +27,9 @@ class newBasicFlake: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        print(second)
+        print(userFlakeArray)
     }
     @IBAction func newBasicFlakeSubmitButton(_ sender: Any) {//click the new basic submit button
         let title = basicFlakeTitle.text!
@@ -39,14 +42,12 @@ class newBasicFlake: UIViewController {
         let party = Int(basicFlakePartyAmount.text!)
         if title != "" || date != "" || location != "" || price != 0{
             flakeList.append(flakeDisplay(flakeID: ID, flakeTitle: title, flakeDetails: details, flakeDate: date, flakeLocation: location, flakePrice: price!, flakeParty: party!, amountPaid: 0, totalAmountPaid: 0))
-                
             pageControlCount = pageControlCount + 1
             performSegue(withIdentifier: "mainSegueFromBasicFlake", sender: self)//segues to the main page
         }
         /************* Firebase database ****************/
         ref = Database.database().reference()
-        
-        print("This is ID \(flakeID)")
+        //print("This is ID \(flakeID)")
         let postFlake = [
             "flakeID": "\(ID)", //add username to database
             "flakeTitle": "\(title)",
@@ -59,13 +60,14 @@ class newBasicFlake: UIViewController {
             "totalAmountPaid":"0"
             ] as [String : Any]
         ref?.child("flakes/flake\(flakeIdentification)").setValue(postFlake) //post all account info into UserAccount database
-   
-        
+
         print(newFlakes + "," + String(flakeID))
         ref?.child("userAccounts/\(uid)/flakeIds").setValue(newFlakes + "," + String(flakeID))
         //Add to all other people in party
         flakeID += 1 //update date to new flake
         ref?.child("flakeIdentification/flakeIdentification").setValue(String(flakeID))
+        
+        newFlakes = newFlakes + "," + String(flakeID)
     }
     //Hide keyboard when the users touches outside keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){

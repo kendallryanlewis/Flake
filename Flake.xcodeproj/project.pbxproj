@@ -20,7 +20,6 @@
 		5C49D28A20FC49AD00777118 /* FeatureDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C49D28920FC49AD00777118 /* FeatureDetails.xib */; };
 		5C70EF622138E2E800790A12 /* launchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C70EF612138E2E800790A12 /* launchScreenViewController.swift */; };
 		5C70EF692138EDA700790A12 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C70EF682138EDA700790A12 /* Launch Screen.storyboard */; };
-		5C7B341E20FDB7CF00E85599 /* FeatureCalculator.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C7B341D20FDB7CE00E85599 /* FeatureCalculator.xib */; };
 		5C7B342020FF0AF900E85599 /* settingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7B341F20FF0AF900E85599 /* settingsViewController.swift */; };
 		5C82AD2C212A8E4E0091BB07 /* calculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C82AD2B212A8E4E0091BB07 /* calculatorViewController.swift */; };
 		5C9929312108446000BC982C /* FeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9929302108446000BC982C /* FeatureView.swift */; };
@@ -70,7 +69,6 @@
 		5C49D28920FC49AD00777118 /* FeatureDetails.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeatureDetails.xib; sourceTree = "<group>"; };
 		5C70EF612138E2E800790A12 /* launchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = launchScreenViewController.swift; sourceTree = "<group>"; };
 		5C70EF682138EDA700790A12 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		5C7B341D20FDB7CE00E85599 /* FeatureCalculator.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeatureCalculator.xib; sourceTree = "<group>"; };
 		5C7B341F20FF0AF900E85599 /* settingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsViewController.swift; sourceTree = "<group>"; };
 		5C82AD2B212A8E4E0091BB07 /* calculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calculatorViewController.swift; sourceTree = "<group>"; };
 		5C9929302108446000BC982C /* FeatureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureView.swift; sourceTree = "<group>"; };
@@ -193,7 +191,6 @@
 			children = (
 				5C9929322108447600BC982C /* Feature.xib */,
 				5C49D28920FC49AD00777118 /* FeatureDetails.xib */,
-				5C7B341D20FDB7CE00E85599 /* FeatureCalculator.xib */,
 				5C49D28020FA018200777118 /* addFeature.xib */,
 			);
 			path = xibFiles;
@@ -336,7 +333,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C7B341E20FDB7CF00E85599 /* FeatureCalculator.xib in Resources */,
 				5C49D28120FA018200777118 /* addFeature.xib in Resources */,
 				5C70EF692138EDA700790A12 /* Launch Screen.storyboard in Resources */,
 				5C49D27F20F32D5700777118 /* Assets.xcassets in Resources */,

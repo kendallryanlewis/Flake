@@ -65,7 +65,7 @@ class flakeDisplay{
 class menuCell: UITableViewCell{ //Edit the menu cells
     @IBOutlet weak var menuItem: UILabel!
     @IBOutlet weak var menuDetails: UILabel!
-
+    
     @IBInspectable var selectionColor: UIColor = .black {//adds selection color feature
         didSet {
             configureSelectedBackgroundView()
@@ -83,7 +83,7 @@ class menuCell: UITableViewCell{ //Edit the menu cells
     }
 }
 class mainViewController: UIViewController, UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate, FBSDKLoginButtonDelegate{
-
+    
     @IBOutlet weak var featureScrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var ubeView: UIView! //mainView
@@ -144,7 +144,7 @@ class mainViewController: UIViewController, UIScrollViewDelegate, UITableViewDat
         menuTableView.endUpdates()
         menuTableView.tableFooterView = UIView(frame: .zero) //remove empty rows in tableView
         menuView.isHidden = true//hide menu
-       /*************** Transparent navbar **************/
+        /*************** Transparent navbar **************/
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
@@ -265,23 +265,23 @@ class mainViewController: UIViewController, UIScrollViewDelegate, UITableViewDat
         featureScrollViewCalculator.contentOffset = featureScrollView.contentOffset
         
         /*for (index, feature) in featureArray.enumerated(){//
-            if currentPage == CGFloat(flakeList[index].flakeID){//If page is the same as ID
-                maxPrice = flakeList[index].flakePrice
-                personalPrice = maxPrice / flakeList[index].flakeParty
-            }
-        }
-        if let featureView = Bundle.main.loadNibNamed("Feature", owner: self, options: nil)?.first as? FeatureView {
-            featureView.progressBar.startProgress(to: 0, duration: 0.5) {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: { //Delay function
-                    featureView.progressBar.startProgress(to:  UICircularProgressRing.ProgressValue(self.totalAmountPaid), duration: 1.0)
-                })
-            }
-            featureView.personalProgressBar.startProgress(to: 0, duration: 0.5) { //Delay function
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
-                    featureView.personalProgressBar.startProgress(to:  UICircularProgressRing.ProgressValue(self.myAmountPaid), duration: 1.0)
-                })
-            }
-        }*/
+         if currentPage == CGFloat(flakeList[index].flakeID){//If page is the same as ID
+         maxPrice = flakeList[index].flakePrice
+         personalPrice = maxPrice / flakeList[index].flakeParty
+         }
+         }
+         if let featureView = Bundle.main.loadNibNamed("Feature", owner: self, options: nil)?.first as? FeatureView {
+         featureView.progressBar.startProgress(to: 0, duration: 0.5) {
+         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: { //Delay function
+         featureView.progressBar.startProgress(to:  UICircularProgressRing.ProgressValue(self.totalAmountPaid), duration: 1.0)
+         })
+         }
+         featureView.personalProgressBar.startProgress(to: 0, duration: 0.5) { //Delay function
+         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+         featureView.personalProgressBar.startProgress(to:  UICircularProgressRing.ProgressValue(self.myAmountPaid), duration: 1.0)
+         })
+         }
+         }*/
     }
     
     @objc func moreButtonPressed(sender:UIButton){

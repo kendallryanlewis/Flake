@@ -2,11 +2,15 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "snow_flake_winter-08-512.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Manarola-Wallpaper-1125x2436-380x823.jpg",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
       "scale" : "2x"
     },
     {
