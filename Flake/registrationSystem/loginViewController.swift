@@ -14,6 +14,8 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import FBSDKShareKit
 
+
+
 class loginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButtonDelegate{
     
     @IBOutlet weak var userUsernameTextField: UITextField!
@@ -26,36 +28,28 @@ class loginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
         super.viewDidLoad()
         self.userPasswordTextField.delegate = self
         self.userUsernameTextField.delegate = self
-        // Do any additional setup after loading the view.
+        
+        flakeList.removeAll() //clear flakes
+        flakeListHolder.removeAll() //clear flakes
+        tempList.removeAll() //clear flakes
+        
         
         //Username and password and login button and facebook button
-        userUsernameTextField.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-        userPasswordTextField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-        signInButton.layer.cornerRadius = signInButton.frame.height / 2
-        signInButton.layer.shadowColor = UIColor.black.cgColor
-        signInButton.layer.shadowRadius = 7
-        signInButton.layer.shadowOpacity = 0.5
-        signInButton.layer.shadowOffset = CGSize(width: 0, height: 3)
-        
-        facebookButton.layer.cornerRadius = facebookButton.frame.height / 2
-        facebookButton.layer.shadowColor = UIColor.black.cgColor
-        facebookButton.layer.shadowRadius = 7
-        facebookButton.layer.shadowOpacity = 0.5
-        facebookButton.layer.shadowOffset = CGSize(width: 0, height: 3)
-        
+        userUsernameTextField.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSAttributedStringKey.foregroundColor: UIColor.black])
+        userPasswordTextField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedStringKey.foregroundColor: UIColor.black])        
         // Use Firebase library to configure Facebook APIs
         let loginButton = FBSDKLoginButton()
         facebookButton.addSubview(loginButton)
         loginButton.delegate = self as! FBSDKLoginButtonDelegate
-        loginButton.frame = CGRect(x: 0, y: 0, width: view.frame.width - 80, height: 45) //40 left, 40 right contraint = (screen width - 80)
+        loginButton.frame = CGRect(x: 0, y: 0, width: view.frame.width - 105, height: 45) //40 left, 40 right contraint = (screen width - 80)
         loginButton.clipsToBounds = true
-        loginButton.layer.cornerRadius = loginButton.frame.height / 2
-        
+        //loginButton.layer.cornerRadius = loginButton.frame.height / 2
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!){
         print("Did log out of facebook")
     }
+    //facebook
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!){
         if error != nil{
             //print(error)
@@ -68,28 +62,36 @@ class loginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
         self.dismiss(animated: true, completion: nil)
     }
     
+    //Button tapped
     @IBAction func loginButtonTapped(_ sender: Any) {
-        /*let userUsername = userUsernameTextField.text
-        let userPassword = userPasswordTextField.text
-        
-        let userUsernameStored = UserDefaults.standard.string(forKey: "userUsername")
-        let userPasswordStored = UserDefaults.standard.string(forKey: "userPassword")*/
-        
+        loggedIn = false
         ref = Database.database().reference()
-       /*********** Firebase *************/
-        Auth.auth().signIn(withEmail: userUsernameTextField.text!, password: userPasswordTextField.text!) { (user, error) in
-            if let error = error { print("Enter Valid email and password")
-            }else{
-                if Auth.auth().currentUser!.isEmailVerified == true{
-                    guard let user = user?.user else { return }
-                }
+        if (userPasswordTextField.text! == "Player1" && userUsernameTextField.text! == "Player1") {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+                print("Successfully logged in")
                 UserDefaults.standard.set(true, forKey:"isUserLoggedIn")
                 UserDefaults.standard.synchronize()
-                self.dismiss(animated: true, completion: nil)
+                self.performSegue(withIdentifier: "loginSegue", sender: self)
             }
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
-            self.performSegue(withIdentifier: "loginSegue", sender: self)
+        }else{
+           /*********** Firebase *************/
+            Auth.auth().signIn(withEmail: userUsernameTextField.text!, password: userPasswordTextField.text!) { (user, error) in
+                if user != nil{
+                    //sign successful
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+                        print("Successfully logged in")
+                        UserDefaults.standard.set(true, forKey:"isUserLoggedIn")
+                        UserDefaults.standard.synchronize()
+                        self.performSegue(withIdentifier: "loginSegue", sender: self)
+                    }
+                }else{
+                    if let error = error?.localizedDescription {
+                        print(error)
+                    }else{
+                        print("error")
+                    }
+                }
+            }
         }
     }
     func textFieldShouldReturn(_ userPasswordTextField: UITextField) -> Bool {

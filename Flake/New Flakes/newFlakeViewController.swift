@@ -11,10 +11,12 @@ import UIKit
 class newFlakeViewController: UIViewController{
     
     /*************** New Flake connectors *******************/
-    @IBOutlet weak var FlakeOne: UIView!
-    @IBOutlet weak var FlakeTwo: UIView!
-    @IBOutlet weak var FlakeThree: UIView!
-
+    @IBOutlet weak var joinFlake: UIView!
+    @IBOutlet weak var basicFlake: UIView!
+    @IBOutlet weak var adminFlake: UIView!
+    @IBOutlet weak var soloFlake: UIView!
+    @IBOutlet weak var backgroundImage: UIImageView!
+    
     /*************** Admin Flake connectors *******************/
     @IBOutlet weak var submitAdministratorButton: UIButton!
     /*************** Solo Flake connectors *******************/
@@ -22,7 +24,28 @@ class newFlakeViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadBackground()
         // Dvarny additional setup after loading the view.
+        //joinFlake.layer.shadowColor = UIColor.black.cgColor
+        //joinFlake.layer.shadowOpacity = 1
+        //joinFlake.layer.shadowOffset = CGSize(width: 3.0, height: 0.0)
+        //joinFlake.layer.shadowRadius = 10
+        
+        let bounds = UIScreen.main.bounds
+        let height = bounds.size.height
+        
+        UIView.animate(withDuration: 1) {
+            //self.basicFlake.frame.origin.y += height / 4
+            //self.adminFlake.frame.origin.y += height / 3
+            //self.soloFlake.frame.origin.y += height / 2
+            //self.joinFlake.frame.origin.y += height
+        }
+        
+        
+    }
+    func loadBackground(){
+        print("bg \(bg)")
+        backgroundImage.backgroundColor = UIColor(patternImage: UIImage(named: "background\(bg).png")!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,6 +53,9 @@ class newFlakeViewController: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     /*************** New Flake selection page *******************/
+    @IBAction func clickJoinFlake(_ sender: Any) {
+        //performSegue(withIdentifier: "joinFlakeSegue", sender: self)//segues to the next the page
+    }
     @IBAction func ClickFlakeOne(_ sender: Any) {//Click the basic button to add basic flake
        performSegue(withIdentifier: "basicFlakeSegue", sender: self)//segues to the next the page
     }

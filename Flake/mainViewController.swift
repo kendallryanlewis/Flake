@@ -12,6 +12,8 @@ import Firebase
 import FBSDKCoreKit
 import FBSDKLoginKit
 import FirebaseDatabase
+import MBCircularProgressBar
+import ChameleonFramework
 
 let indexPath = IndexPath(row: flakeList.count - 1, section: 0)
 
@@ -22,14 +24,27 @@ var menuList = [menuDisplay(menuItem: "MyAccount", menuDetails: Int(1)),
                 menuDisplay(menuItem: "Options", menuDetails: Int(0)),
                 menuDisplay(menuItem: "Logout", menuDetails: Int(0))]
 
-var flakeList = [flakeDisplay(flakeID: 1, flakeTitle: "FlakeOne", flakeDetails: "Gathering for Winter trip!", flakeDate: "06/22/91", flakeLocation: "Denver,Co", flakePrice: 192, flakeParty: 12, amountPaid: 5, totalAmountPaid: 0)]
+var flakeList = [flakeDisplay]()
+var flakeListHolder = [flakeDisplay]()
+var flakeAdder = [String]()
+var tempList = [flakeDisplay]()
 
 var currentFlakes = flakeList.count //count how many flakes the user has
 var pageControlCount :Int = 0
 var pageID = 0
 var page = 0
-var bg = 0
 var flakeIdentification = 0
+var userFlakeID = 0
+let notification = UINotificationFeedbackGenerator() //haptic feedback generator
+
+
+/**************** Settings variables ****************/
+var bg = 1 //system background
+var glass:String = "Light" //system glass
+var pb:Int = 1 //system progress Bar
+/**************** Settings variables ****************/
+
+
 
 class menuDisplay {
     var menuItem = ""
@@ -49,7 +64,8 @@ class flakeDisplay{
     var flakeParty = 0
     var amountPaid = 0
     var totalAmountPaid = 0
-    init(flakeID: Int, flakeTitle: String, flakeDetails: String, flakeDate: String, flakeLocation: String, flakePrice:Int, flakeParty:Int, amountPaid:Int, totalAmountPaid:Int){
+    var flakeMembers = ""
+    init(flakeID: Int, flakeTitle: String, flakeDetails: String, flakeDate: String, flakeLocation: String, flakePrice:Int, flakeParty:Int, amountPaid:Int, totalAmountPaid:Int, flakeMembers:String){
         self.flakeID = flakeID
         self.flakeTitle = flakeTitle
         self.flakeDetails = flakeDetails
@@ -59,6 +75,7 @@ class flakeDisplay{
         self.flakeParty = flakeParty
         self.amountPaid = amountPaid
         self.totalAmountPaid = totalAmountPaid
+        self.flakeMembers = flakeMembers
     }
 }
 
@@ -84,8 +101,10 @@ class menuCell: UITableViewCell{ //Edit the menu cells
 }
 class mainViewController: UIViewController, UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate, FBSDKLoginButtonDelegate{
     
+    @IBOutlet var mainView: UIView!
     @IBOutlet weak var featureScrollView: UIScrollView!
-    @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var progressBar: MBCircularProgressBarView!
+    @IBOutlet weak var personalProgressBar: MBCircularProgressBarView!
     @IBOutlet weak var ubeView: UIView! //mainView
     @IBOutlet weak var menuView: UIView!
     @IBOutlet weak var menuTableView: UITableView!
@@ -97,6 +116,10 @@ class mainViewController: UIViewController, UIScrollViewDelegate, UITableViewDat
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var usernameDisplay: UILabel!
     @IBOutlet weak var userImage: UIImageView!
+    @IBOutlet weak var menuButton: UIBarButtonItem!
+    @IBOutlet weak var addNewFlakeFeature: UIView!
+    @IBOutlet weak var addNewFlakeHighlight: UIImageView!
+    @IBOutlet var gestureRecognizer: UISwipeGestureRecognizer!
     
     var contentWidth:CGFloat = 0.0
     var menuIsVisible = false//sets menu to close
@@ -107,8 +130,9 @@ class mainViewController: UIViewController, UIScrollViewDelegate, UITableViewDat
     var flakeIdList = [flakeDisplay]()
     var maxPrice = 0 //Max price for trip
     var personalPrice = 0 //Personal price for trip
-    var featureArray = flakeList//[Dictionary<String,String>]()
-    let flakeArray = flakeList
+    var featureArray = flakeList 
+
+    var featureHolderArray = flakeListHolder
     var tripPrice = 0
     var flakeParty = 0
     var myPrice = 0
@@ -118,204 +142,326 @@ class mainViewController: UIViewController, UIScrollViewDelegate, UITableViewDat
     var addPayment = 0
     var ref:DatabaseReference?
     var databaseHandle: DatabaseHandle?
+    var reachability:Reachability?
+    
+    
+    let shapeLayer = CAShapeLayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadBackground() //load background images
-        getFacebookUserInfo() //Gather facebook info if needed
-        /************** Paralax effect *************/
-        let min = CGFloat(-100)
-        let max = CGFloat(100)
-        let xMotion = UIInterpolatingMotionEffect(keyPath: "layer.transform.translation.x", type: .tiltAlongHorizontalAxis)
-        xMotion.minimumRelativeValue = min
-        xMotion.maximumRelativeValue = max
-        let yMotion = UIInterpolatingMotionEffect(keyPath: "layer.transform.translation.y", type: .tiltAlongVerticalAxis)
-        yMotion.minimumRelativeValue = min
-        yMotion.maximumRelativeValue = max
-        let motionEffectGroup = UIMotionEffectGroup()
-        motionEffectGroup.motionEffects = [xMotion,yMotion]
-        backgroundImageView.addMotionEffect(motionEffectGroup)
-        /*********menu table view*********/
-        let menuIndexPath = IndexPath(row: menuList.count - 1, section: 0)
-        self.menuTableView.delegate = self
-        self.menuTableView.dataSource = self
-        menuTableView.beginUpdates()
-        menuTableView.insertRows(at: [menuIndexPath], with: .automatic) //insert rows at tableview
-        menuTableView.endUpdates()
-        menuTableView.tableFooterView = UIView(frame: .zero) //remove empty rows in tableView
-        menuView.isHidden = true//hide menu
-        /*************** Transparent navbar **************/
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.view.backgroundColor = .clear
-        /**************** Pregress bars ******************/
-        pageControl.numberOfPages = pageControlCount
-        featureScrollViewDetails.isHidden = true//hide details
-        featureScrollViewCalculator.isHidden = true//hide details
-        backgroundImage.contentMode = UIViewContentMode.scaleAspectFit
-        /**************** Firebase Database ******************/
-        ref = Database.database().reference()
-        firebaseFlakeIdentification() //Gather flake indentification
-        /******************** Features *****************/
-        pageControlCount = currentFlakes //add page dots
-        featureScrollView.delegate = self
-        featureScrollView.isPagingEnabled = true
-        featureScrollView.contentSize = CGSize(width: self.view.bounds.width * CGFloat(featureArray.count), height: 250)
-        featureScrollViewDetails.contentSize = CGSize(width: self.view.bounds.width * CGFloat(featureArray.count), height: 250)
-        featureScrollViewCalculator.contentSize = CGSize(width: self.view.bounds.width * CGFloat(featureArray.count), height: 250)
-        featureScrollView.showsVerticalScrollIndicator = false
-        featureScrollViewDetails.showsVerticalScrollIndicator = false
-        featureScrollViewCalculator.showsVerticalScrollIndicator = false
-        loadFeatures()//Gather and display user flakes
+        self.reachability = Reachability.init()!
+        if ((self.reachability!.connection) != .none){ //if internet is found
+            print("Internet Connection Found")
+            loggedIn = true //set logged in to true
+            loadBackground() //load background images
+            getFacebookUserInfo() //Gather facebook info if needed
+            /************** Paralax effect
+            let min = CGFloat(-30)
+            let max = CGFloat(30)
+            let xMotion = UIInterpolatingMotionEffect(keyPath: "layer.transform.translation.x", type: .tiltAlongHorizontalAxis)
+            xMotion.minimumRelativeValue = min
+            xMotion.maximumRelativeValue = max
+            let yMotion = UIInterpolatingMotionEffect(keyPath: "layer.transform.translation.y", type: .tiltAlongVerticalAxis)
+            yMotion.minimumRelativeValue = min
+            yMotion.maximumRelativeValue = max
+            let motionEffectGroup = UIMotionEffectGroup()
+            motionEffectGroup.motionEffects = [xMotion,yMotion]
+            backgroundImageView.addMotionEffect(motionEffectGroup) *************/
+            /*********menu table view*********/
+            let menuIndexPath = IndexPath(row: menuList.count - 1, section: 0)
+            self.menuTableView.delegate = self
+            self.menuTableView.dataSource = self
+            menuTableView.beginUpdates()
+            menuTableView.insertRows(at: [menuIndexPath], with: .automatic) //insert rows at tableview
+            menuTableView.endUpdates()
+            menuTableView.tableFooterView = UIView(frame: .zero) //remove empty rows in tableView
+            menuView.isHidden = true//hide menu
+            /*************** Transparent navbar **************/ self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+            self.navigationController?.navigationBar.shadowImage = UIImage()
+            self.navigationController?.navigationBar.isTranslucent = true
+            self.navigationController?.view.backgroundColor = .clear
+            /**************** Pregress bars ******************/
+            featureScrollViewDetails.isHidden = true//hide details
+            featureScrollViewCalculator.isHidden = true//hide details
+            backgroundImage.contentMode = UIViewContentMode.scaleAspectFit
+            /**************** Firebase Database ******************/
+            ref = Database.database().reference()
+            firebaseFlakeIdentification() //Gather flake indentification
+            /******************** Features *****************/
+            pageControlCount = currentFlakes //add page dots
+            featureScrollView.delegate = self
+            featureScrollView.isPagingEnabled = true
+            featureScrollView.contentSize = CGSize(width: self.view.bounds.width * CGFloat(featureArray.count + featureHolderArray.count + 1), height: 250)
+            featureScrollViewDetails.contentSize = CGSize(width: self.view.bounds.width * CGFloat(featureArray.count + featureHolderArray.count), height: 250)
+            featureScrollViewCalculator.contentSize = CGSize(width: self.view.bounds.width * CGFloat(featureArray.count + featureHolderArray.count), height: 250)
+            featureScrollView.showsVerticalScrollIndicator = false
+            featureScrollViewDetails.showsVerticalScrollIndicator = false
+            featureScrollViewCalculator.showsVerticalScrollIndicator = false
+            loadFeatures()//Gather and display user flakes
+            addNewFlakeFeature.isHidden = true
+            tempList.append(contentsOf: flakeList)
+            tempList.append(contentsOf: flakeListHolder)
+            /******************** Feature shadow *****************/
+            featureScrollView.layer.shadowColor = UIColor.black.cgColor
+            featureScrollView.layer.shadowOpacity = 1
+            featureScrollView.layer.shadowOffset = CGSize(width: 3.0, height: 2.0)
+            featureScrollView.layer.shadowRadius = 10
+            /******************** Background Image *****************/
+            //let bounds = UIScreen.main.bounds
+            //let width = bounds.size.width
+            let screenSize: CGRect = UIScreen.main.bounds
+            backgroundImage.frame = CGRect(x: 0, y: 0, width: screenSize.width * 2, height: screenSize.height)
+            /***************** Progress Bar Loading ***************/
+            progressBar.isHidden = true
+            personalProgressBar.isHidden = true
+            loadProgressBar()
+        
+            //mainView.backgroundColor = FlatGreenDark()
+            
+            let up = UISwipeGestureRecognizer(target : self, action : #selector(mainViewController.upSwipe))
+            up.direction = .up
+            self.featureScrollView.addGestureRecognizer(up)
+            
+            let down = UISwipeGestureRecognizer(target : self, action : #selector(mainViewController.downSwipe))
+            down.direction = .down
+            self.featureScrollView.addGestureRecognizer(down)
+        }else{
+            print("Internet Connection Not Found")
+            performSegue(withIdentifier: "offlineSegue", sender: self)//segues to the offline page
+        }
+    
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        UIView.animate(withDuration: 10){
+            //self.example.value = 70
+        }
     }
     
     func loadBackground(){
-        print("bg \(bg)")
-        if bg == 1 {
-            backgroundImage.backgroundColor =
-                UIColor(patternImage: UIImage(named: "background1.png")!)
-        }else if bg == 2{
-            backgroundImage.backgroundColor = UIColor(patternImage: UIImage(named: "background2.png")!)
-        }else if bg == 3{
-            backgroundImage.backgroundColor = UIColor(patternImage: UIImage(named: "background3.png")!)
-        }else if bg == 4{
-            backgroundImage.backgroundColor = UIColor(patternImage: UIImage(named: "background4.png")!)
-        }else if bg == 5{
-            backgroundImage.backgroundColor = UIColor(patternImage: UIImage(named: "background5.png")!)
-        }else if bg == 6{
-            backgroundImage.backgroundColor = UIColor(patternImage: UIImage(named: "background6.png")!)
-        }else if bg == 7{
-            backgroundImage.backgroundColor = UIColor(patternImage: UIImage(named: "background7.png")!)
-        }else if bg == 8{
-            backgroundImage.backgroundColor = UIColor(patternImage: UIImage(named: "background8.png")!)
-        }else if bg == 9{
-            backgroundImage.backgroundColor = UIColor(patternImage: UIImage(named: "background9.png")!)
-        }else if bg == 10{
-            backgroundImage.backgroundColor = UIColor(patternImage: UIImage(named: "background10.png")!)
+        backgroundImage.backgroundColor = UIColor(patternImage: UIImage(named: "background\(bg).png")!)
+        addNewFlakeHighlight.backgroundColor = UIColor(patternImage: UIImage(named: "glass\(glass).png")!)
+    }
+    
+    func loadProgressBar(){
+        switch pb {
+            case 1:
+                //print("Angled half circle")
+                progressBar.progressAngle = 40
+                progressBar.progressRotationAngle = -15
+                personalProgressBar.progressAngle = 45
+                personalProgressBar.progressRotationAngle = -15
+            case 2:
+                //print("Full Circle")
+                progressBar.progressAngle = 100
+                progressBar.progressRotationAngle = 0
+                personalProgressBar.progressAngle = 100
+                personalProgressBar.progressRotationAngle = 0
+            case 3:
+                //print("Full inner circle with Three/Quarter circle facing bottom right")
+                progressBar.progressAngle = 70
+                progressBar.progressRotationAngle = -10
+                personalProgressBar.progressAngle = 100
+                personalProgressBar.progressRotationAngle = 0
+            case 4:
+                //print("Three/Quarter circle facing bottom right")
+                progressBar.progressAngle = 70
+                progressBar.progressRotationAngle = -10
+                personalProgressBar.progressAngle = 75
+                personalProgressBar.progressRotationAngle = -10
+            case 5:
+                //print("Three/Quarter circle facing right")
+                progressBar.progressAngle = 70
+                progressBar.progressRotationAngle = -25
+                personalProgressBar.progressAngle = 75
+                personalProgressBar.progressRotationAngle = -25
+            case 6:
+                //print("Three/Quarter Circle facing down")
+                progressBar.progressAngle = 70
+                progressBar.progressRotationAngle = 0
+                personalProgressBar.progressAngle = 75
+                personalProgressBar.progressRotationAngle = 0
+            
+            default:
+                progressBar.progressAngle = 70
+                progressBar.progressRotationAngle = 0
+                personalProgressBar.progressAngle = 75
+                personalProgressBar.progressRotationAngle = 0
         }
     }
     
     func firebaseFlakeIdentification(){
         ref?.child("flakeIdentification/flakeIdentification").observe(.value, with: { (snapshot) in
-            print("This works two")
             let post = snapshot.value as? String
             if let actualPost = post{
                 flakeIdentification = Int(actualPost)!
-                print("This is the current flake identification \(flakeIdentification)")
             }
         })
     }
-    func loadFeatures(){
-        for (index, feature) in featureArray.enumerated(){ //iterate throughout the array for each flake
-            if let featureView = Bundle.main.loadNibNamed("Feature", owner: self, options: nil)?.first as? FeatureView {
-                featureView.flakeTitle.text = flakeList[index].flakeTitle//Flake title
-                featureView.flakeLocation.text = flakeList[index].flakeLocation //Location of flake
-                featureView.flakeDate.text = flakeList[index].flakeDate//Location of flakedateton
-                featureView.flakeBalance.text = String(flakeList[index].totalAmountPaid)
-                featureView.moreButton.addTarget(self, action: #selector(mainViewController.moreButtonPressed(sender:)), for: .touchUpInside)
-                featureScrollView.addSubview(featureView) //Add this to enable Feature to display in scrollview
-                featureView.frame.size.width = self.view.bounds.size.width
-                featureView.frame.origin.x = CGFloat(index) * self.view.bounds.size.width
-            }
-            if let featureDetailsView = Bundle.main.loadNibNamed("FeatureDetails", owner: self, options: nil)?.first as? FeatureView {
-                featureDetailsView.flakeDetailsTitle.text = flakeList[index].flakeTitle//Flake title
-                featureDetailsView.flakeDetails.text = flakeList[index].flakeDetails //flake detials
-                featureDetailsView.flakeDetailsDate.text = flakeList[index].flakeDate //set flake date
-                featureDetailsView.flakeDetailsLocation.text = flakeList[index].flakeLocation //Location of flake
-                featureDetailsView.addPaymentButton.tag = index //activate the moreButton
-                featureDetailsView.addPaymentButton.addTarget(self, action: #selector(mainViewController.addPaymentButtonPressed(sender:)), for: .touchUpInside)
-                featureDetailsView.returnHome.tag = index //activate the moreButton
-                featureDetailsView.returnHome.addTarget(self, action: #selector(mainViewController.returnHomeButtonPressed(sender:)), for: .touchUpInside)
-                featureScrollViewDetails.addSubview(featureDetailsView) //Add this to enable Feature to display in scrollview
-                featureDetailsView.frame.size.width = self.view.bounds.size.width
-                featureDetailsView.frame.origin.x = CGFloat(index) * self.view.bounds.size.width
-                
-                tripPrice = flakeList[index].flakePrice //convert the price of the trip in to the variable
-                flakeParty = flakeList[index].flakeParty //find the amount of people in trip
-                myPrice = tripPrice / flakeParty //figure out individual price
-                myAmountPaid = flakeList[index].amountPaid
-                ourAmountPaid = flakeList[index].totalAmountPaid
-                
-                featureDetailsView.progressBar.maxValue = UICircularProgressRing.ProgressValue(tripPrice)
-                featureDetailsView.progressBar.startProgress(to: UICircularProgressRing.ProgressValue(ourAmountPaid), duration: 1.0)
-                featureDetailsView.personalProgressBar.maxValue = UICircularProgressRing.ProgressValue(myPrice)
-                featureDetailsView.personalProgressBar.startProgress(to: UICircularProgressRing.ProgressValue(myAmountPaid), duration: 1.0)
-                
-                //print("trip price \(tripPrice)")
-                //print("personal price \(myPrice)")
-                //print("total amount paid \(ourAmountPaid)")
-                //print("my amount Paid \(myAmountPaid)")
-            }
-            if let addFeatureView = Bundle.main.loadNibNamed("addFeature", owner: self, options: nil)?.first as? FeatureView {
-                //featureAddView.addButton.tag = index //activate the moreButton
-                //featureAddView.addButton.addTarget(self, action: #selector(mainViewController.submitButtonPressed(sender:)), for: .touchUpInside)
-                //featureScrollView.addSubview(featureAddView) //Add this to enable Feature to display in scrollview
-            }
-        }
-    }
     
+    
+    /*func messageCell(){
+        var items = ["Item 1", "Item2", "Item3", "Item4"]
+        // MARK: - UITableViewDataSource
+        override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+            return items.count
+        }
+        
+        override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+            let identifier = "Cell"
+            var cell: CustomOneCell! = tableView.dequeueReusableCellWithIdentifier(identifier) as? CustomOneCell
+            if cell == nil {
+                tableView.registerNib(UINib(nibName: "CustomCellOne", bundle: nil), forCellReuseIdentifier: identifier)
+                cell = tableView.dequeueReusableCellWithIdentifier(identifier) as? CustomOneCell
+            }
+            
+            return cell
+        }
+    }*/
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         page = Int(scrollView.contentOffset.x / scrollView.frame.size.width) //set the page size
-        pageControl.currentPage = Int(page) //set the page dot
         let currentPage = page + 1 //Get the current page number for the ID
         pageID = Int(currentPage) //add to pageID
-        
         featureScrollViewDetails.contentOffset = featureScrollView.contentOffset
         featureScrollViewCalculator.contentOffset = featureScrollView.contentOffset
-        
-        /*for (index, feature) in featureArray.enumerated(){//
-         if currentPage == CGFloat(flakeList[index].flakeID){//If page is the same as ID
-         maxPrice = flakeList[index].flakePrice
-         personalPrice = maxPrice / flakeList[index].flakeParty
-         }
-         }
-         if let featureView = Bundle.main.loadNibNamed("Feature", owner: self, options: nil)?.first as? FeatureView {
-         featureView.progressBar.startProgress(to: 0, duration: 0.5) {
-         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: { //Delay function
-         featureView.progressBar.startProgress(to:  UICircularProgressRing.ProgressValue(self.totalAmountPaid), duration: 1.0)
-         })
-         }
-         featureView.personalProgressBar.startProgress(to: 0, duration: 0.5) { //Delay function
-         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
-         featureView.personalProgressBar.startProgress(to:  UICircularProgressRing.ProgressValue(self.myAmountPaid), duration: 1.0)
-         })
-         }
-         }*/
+        /********* Animate ui view *************/
+        if (pageID > featureArray.count + featureHolderArray.count && pageID < featureArray.count + featureHolderArray.count + 2 ){
+            print("This is the last empty spot")
+            addNewFlakeFeature.isHidden = false
+            
+            
+            addNewFlakeHighlight.isUserInteractionEnabled = false
+            
+            UIView.animate(withDuration: 0.2) {//slide animation
+                self.addNewFlakeFeature.transform = CGAffineTransform.identity.scaledBy(x: 0.95, y: 0.95)
+            }
+            UIView.animate(withDuration: 0.7) {//slide animation
+                self.addNewFlakeFeature.transform = CGAffineTransform.identity.scaledBy(x: 1, y: 1)
+            }
+        }else{
+            addNewFlakeFeature.isHidden = true
+            self.addNewFlakeFeature.transform = CGAffineTransform.identity.scaledBy(x: 0.4, y: 0.4)
+        }
     }
     
     @objc func moreButtonPressed(sender:UIButton){
-        featureScrollView.isHidden = true //hidedrinks details
-        featureScrollViewDetails.isHidden = false //show drinks details
-        featureScrollViewCalculator.isHidden = true//hide drinks details
+        notification.notificationOccurred(.success) //haptic feedback
+        
+        progressBar.isHidden = false
+        personalProgressBar.isHidden = false
+        featureScrollView.isHidden = true //hided
+        featureScrollViewDetails.isHidden = false //show
+        featureScrollViewCalculator.isHidden = true//hide
+        let page = pageID - 1
+                progressBar.isHidden = false
+                personalProgressBar.isHidden = false
+        if page >= 0{
+            let price = Float(flakeList[page].flakePrice) //convert the price of the trip in to the variable
+            let personalParty = Float(flakeList[page].flakeParty) //find the amount of people in trip
+            let personalCurrentPrice = Float(price / personalParty)//figure out individual price
+            let personalPaid = Float(flakeList[page].amountPaid)
+            let groupPaid = Float(flakeList[page].totalAmountPaid)
+            let personalPercentage = Float(personalPaid / personalCurrentPrice)
+            let groupPercentage = Float(groupPaid / price)
+            if personalPercentage >= 1{
+                UIView.animate(withDuration: 2){
+                    self.progressBar.value = CGFloat(1)
+                    self.personalProgressBar.value = CGFloat(1)
+                    print("percentage \(1)")
+                }
+            }else{
+                UIView.animate(withDuration: 2){
+                    self.progressBar.value = CGFloat(groupPercentage)
+                    self.personalProgressBar.value = CGFloat(personalPercentage)
+                    //print("group percentage \(Float(personalPercentage))")
+                    //print("personal percentage \(Float(personalPercentage))")
+                }
+            }
+        }
     }
     @objc func addPaymentButtonPressed(sender:UIButton){
-        //featureScrollView.isHidden = true//hide
-        //featureScrollViewDetails.isHidden = true
-        //featureScrollViewCalculator.isHidden = false//hide drinks details
+        ref?.child("flakePots/flake\(flakeList[pageID - 1].flakeID)/members/\(uid)/pricePaid").observe(.value, with: { (snapshot) in //gather user flake list from firebase
+            let post = snapshot.value as? String
+            if let actualPost = post{
+                currentFlakePrice = Int(actualPost)!
+                print("post \(actualPost)")
+                print("post current flake \(currentFlakePrice)")
+            }
+        })
         performSegue(withIdentifier: "calculatorSegue", sender: self)//segues to the calc page
     }
     @objc func returnHomeButtonPressed(sender:UIButton){
-        featureScrollView.isHidden = false
-        featureScrollViewDetails.isHidden = true//hide drinks details
-        featureScrollViewCalculator.isHidden = true //show drinks details
+        notification.notificationOccurred(.success) //haptic feedback
+        featureScrollView.isHidden = false//show feature
+        featureScrollViewDetails.isHidden = true//hide
+        featureScrollViewCalculator.isHidden = true //hide
+        let bounds = UIScreen.main.bounds
+        //let height = bounds.size.height
+        self.progressBar.value = 0
+        self.personalProgressBar.value = 0
+        progressBar.isHidden = true
+        personalProgressBar.isHidden = true
+    }
+    @objc func settingsButtonPressed(sender:UIButton){
+        //count the page index
+        if pageID == 0{
+            print(flakeList[0].flakeID)
+            userFlakeID = flakeList[0].flakeID
+        }else{
+            print(flakeList[pageID - 1].flakeID)
+            userFlakeID = flakeList[pageID - 1].flakeID
+        }
+        performSegue(withIdentifier: "segueToFlakeSettings", sender: self)//segues to the feed page
     }
     /************ Start of Menu Section ***********/
     @IBAction func menuButtonTapped(_ sender: Any) {
-        if !menuIsVisible{ //If menu is not visible, display menu
+        notification.notificationOccurred(.success) //haptic feedback
+        if !menuIsVisible{ //If menu is not visible, display menu (OPENED)
             leadingConstraints.constant = 325 //shift to 325
             trailingConstraints.constant = 325//sift to  -35
             menuIsVisible = true //set main menu to false
-            menuView.isHidden = false //show drinks menu
+            menuView.isHidden = false
             print("menu Active")
-        }else{//if menu is visible move the menu back
+            UIView.animate(withDuration: 0.5) {
+                self.backgroundImageView.alpha = 0.3
+                self.backgroundImageView.alpha = 0.2
+                self.backgroundImageView.alpha = 0.1
+                self.backgroundImageView.alpha = 0.05
+            }
+            UIView.animate(withDuration: 0.3) {//slide animation
+                self.ubeView.frame.origin.x += 300
+            }
+            UIView.animate(withDuration: 0.55) {//slide animation
+                self.menuView.frame.origin.x += 300
+            }
+            progressBar.isHidden = true
+            personalProgressBar.isHidden = true
+        }else{//if menu is visible move the menu back (OPENED)
             leadingConstraints.constant = 0 //reset main menu back to zero
             trailingConstraints.constant = 0 // reset main menu back to zero
+            print("close menu")
+            UIView.animate(withDuration: 1) {
+                self.backgroundImageView.alpha = 0.05
+                self.backgroundImageView.alpha = 0.1
+                self.backgroundImageView.alpha = 0.2
+                self.backgroundImageView.alpha = 0.3
+            }
+            UIView.animate(withDuration: 0.3) { //slide animation
+                self.ubeView.frame.origin.x -= 300
+            }
+            UIView.animate(withDuration: 0.3) { //slide animation
+                self.menuView.frame.origin.x -= 300
+            }
             menuIsVisible = false //set main menu to false
             menuView.isHidden = true//hide menu
-            print("close menu")
         }
     }
+    /******* Add more feature button ********/
+    @IBAction func addFeatureButton(_ sender: Any) {
+        notification.notificationOccurred(.success) //haptic feedback
+        performSegue(withIdentifier: "newFlake", sender: self)//segues to the feed page
+    }
+    
     /******* Table View ********/
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var count : Int?
@@ -387,11 +533,11 @@ class mainViewController: UIViewController, UIScrollViewDelegate, UITableViewDat
                 performSegue(withIdentifier: "settingsSegue", sender: self)//segues to the settings page
             }else if menuList[indexPath.row].menuItem == "Logout"{
                 print("Logout")
-                //l
                 let loginManager = FBSDKLoginManager()
                 loginManager.logOut() //logout of facebook
-                try! Auth.auth().signOut()
-                UserDefaults.standard.set(false, forKey:"isUserLoggedIn") //user is no longer logged in
+                uid = ""
+                try! Auth.auth().signOut() //sign user out
+                UserDefaults.standard.set(false, forKey:"isUserLoggedIn") //user is no longer logged in /change to true
                 UserDefaults.standard.synchronize()
                 self.performSegue(withIdentifier: "returnLoginView", sender: self) //segue to the login screen
             }
@@ -402,6 +548,7 @@ class mainViewController: UIViewController, UIScrollViewDelegate, UITableViewDat
         print("loginButtonDidLogOut")
         userImage.image = UIImage(named: "fb-art.jpg")
         label.text = "Not Logged In"
+        uid = ""
     }
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
@@ -435,12 +582,75 @@ class mainViewController: UIViewController, UIScrollViewDelegate, UITableViewDat
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         self.view.endEditing(true)
     }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        
+    }
+    @IBAction func panCard(_ sender: UIPanGestureRecognizer) {
+        let card = sender.view!
+        let point = sender.translation(in: featureScrollView)
+        //let yFromCenter = card.center.y - view.center.y
+        
+        if point.y > 0 {
+            card.center = self.view.center
+        }else {
+            card.center = CGPoint(x: view.center.x, y: view.center.y + point.y)
+        }
+        if point.y > 300 {
+            card.center = self.view.center
+            //card.center = CGPoint(x: view.center.x, y: view.center.y + point.y)
+        }
+        if sender.state == UIGestureRecognizerState.ended {
+            if card.center.y < view.frame.height - 500 {
+                //move card up
+                UIView.animate(withDuration: 0.5, animations: {
+                    card.center = CGPoint(x: card.center.x, y: card.center.y - 900)
+                    if card.center.y > card.center.y - 200 {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6){ //Delay 5 secs then segue. Needed to load flakes
+                            let refreshAlert = UIAlertController(title: "Delete Flake", message: "Are you sure you want to delete Flake", preferredStyle: UIAlertControllerStyle.alert)
+                            refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+                                print("Handle Ok logic here")
+                            }))
+                            refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+                                UIView.animate(withDuration: 0.2, animations: {
+                                    print("Handle Cancel Logic here")
+                                    card.center = self.view.center
+                                })
+                            }))
+                            self.present(refreshAlert, animated: true, completion: nil)
+                        }
+                    }
+                })
+                return
+            } else{
+                //move card down
+                UIView.animate(withDuration: 0.3, animations: {
+                    card.center = CGPoint(x: card.center.x, y: card.center.y)
+                 card.center = self.view.center
+                })
+                return
+            }
+        }
+    }
+    
     //presses the return key
     func textFieldShouldReturn(_ textField: UITextField) -> Bool  {
         //searchController.resignFirstResponder()//hides keyboard
         return(true)
     }
-    
+    @objc func leftSwipe(){
+        print("Swipe left")
+    }
+    @objc func rightSwipe(){
+        print("Swipe right")
+    }
+    @objc func upSwipe(){
+        print("Swipe up")
+    }
+    @objc func downSwipe(){
+        print("Swipe down")
+    }
 }
 
 

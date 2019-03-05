@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Nature-Apple-iPhone-X-Wallpaper.jpg",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "background13.png",
       "scale" : "2x"
     },
     {
